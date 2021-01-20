@@ -6,7 +6,7 @@ name: main
 on:
   push:
     branches:
-      - master
+      - main
       - develop
     tags:
       - "*"
