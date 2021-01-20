@@ -1,0 +1,21 @@
+{% with -%}
+{% set index_server = cookiecutter.index_server|lower -%}
+{% if index_server == 'aliyun' -%}
+--index-url https://mirrors.aliyun.com/pypi/simple/
+{% elif index_server == 'tendata' -%}
+-i http://repo.tendata.com.cn/repository/pypi-all/simple
+--trusted-host repo.tendata.com.cn
+{% endif -%}
+{% endwith -%}
+
+{% if cookiecutter.init_bootstrap|lower == 'y' -%}
+dynaconf
+click
+{% endif -%}
+
+# Dev
+tox
+pylint
+isort
+pytest
+pytest-cov
