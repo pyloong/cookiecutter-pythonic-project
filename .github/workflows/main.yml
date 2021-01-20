@@ -23,31 +23,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        name: [
-          "ubuntu-py37",
-          "ubuntu-py38",
-          "ubuntu-py39",
-        ]
-
-        include:
-          - name: ubuntu-py37
-            python: "3.7"
-            os: ubuntu-latest
-            tox_env: py37
-          - name: ubuntu-py38
-            python: "3.8"
-            os: ubuntu-latest
-            tox_env: py38
-          - name: ubuntu-py39
-            python: "3.9"
-            os: ubuntu-latest
-            tox_env: py39
+        os: [ubuntu-20.04]
+        python: [3.7, 3.8, 3.9]
 
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: Set up Python ${{ matrix.python }}
+      - name: Set up Python ${{ matrix.python }} on ${{ matrix.os }}
         uses: actions/setup-python@v2
 
       - name: Install dependencies
