@@ -1,6 +1,6 @@
 # cookiecutter-tendata-python
 
-![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/pyloong/cookiecutter-pythonic-project/main/master?style=flat-square)
+![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/pyloong/cookiecutter-pythonic-project/main/main?style=flat-square)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/pyloong/cookiecutter-pythonic-project?style=flat-square)
 ![License](https://img.shields.io/github/license/pyloong/cookiecutter-pythonic-project?style=flat-square)
 
