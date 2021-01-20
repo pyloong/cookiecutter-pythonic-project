@@ -1,5 +1,5 @@
 """Test cmdline"""
-from typing import List, Optional
+from typing import List
 
 import pytest
 from click.testing import CliRunner
@@ -22,7 +22,7 @@ def test_main(
         clicker: CliRunner,
         invoke_args: List[str],
         exit_code: int,
-        output_keyword: Optional[str],
+        output_keyword: str,
 ):
     """Test main cmdline"""
     result = clicker.invoke(main, invoke_args)
