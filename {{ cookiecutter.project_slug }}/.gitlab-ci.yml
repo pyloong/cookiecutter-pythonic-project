@@ -1,0 +1,55 @@
+default:
+  image: python:{{ cookiecutter.python_version }}
+  before_script:
+    - pip install -U pip
+
+.base_test:
+  stage: test
+  script:
+    - pip install -U tox
+    - tox -e py
+
+stages:
+  - test
+  - build
+  - upload
+
+# Due to gitlab ci not support matrix build. So use YAML anchors:
+# https://forum.gitlab.com/t/matrix-builds-in-ci/9629
+test:py{{ cookiecutter.python_version|replace('.', '') }}:
+  image: python:{{ cookiecutter.python_version }}
+  extends:
+    - .base_test
+
+test:lint:
+  stage: test
+  script:
+    - pip install -U tox
+    - tox -e isort
+    - tox -e pylint
+
+build:
+  stage: build
+  when: on_success
+  script:
+    - python setup.py bdist_wheel
+  artifacts:
+    paths:
+      - dist/*.whl
+    expire_in: 3 days
+
+# You should set TWINE_USERNAME and TWINE_PASSWORD in gitlab ci/cd environment variables.
+# You must set TWINE_NON_INTERACTIVE is True in gitlab ci/cd environment variables to avoid the need to enter
+# a password because the pipeline card owner.
+deploy:twine:
+  stage: upload
+  when: on_success
+  only:
+    refs:
+      - tags
+    variables:
+      - $TWINE_USERNAME
+      - $TWINE_PASSWORD
+  script:
+    - pip install -U twine
+    - twine upload dist/*.whl

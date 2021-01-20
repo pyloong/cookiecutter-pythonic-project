@@ -1,0 +1,31 @@
+[[source]]
+{% with -%}
+{% set index_server  = cookiecutter.index_server|lower -%}
+{% if index_server == 'aliyun' -%}
+name = "aliyun"
+url = "https://mirrors.aliyun.com/pypi/simple/"
+verify_ssl = true
+{% elif index_server == 'tendata' -%}
+name = "tandata"
+url = "http://repo.tendata.com.cn/repository/pypi-all/simple"
+verify_ssl = false
+{% else %}
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+{% endif %}
+{% endwith -%}
+
+[packages]
+dynaconf = "*"
+click = "*"
+
+[dev-packages]
+tox = "*"
+pylint = "*"
+isort = "*"
+pytest = "*"
+pytest-cov = "*"
+
+[requires]
+python_version = "{{ cookiecutter.python_version }}"
