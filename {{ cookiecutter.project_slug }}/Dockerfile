@@ -8,4 +8,4 @@ WORKDIR /app
 
 ADD . ./
 
-RUN ["python"]
+# CMD ["python"]

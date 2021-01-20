@@ -1,4 +1,5 @@
 """Test config"""
+{%- if cookiecutter.init_bootstrap == 'y' %}
 import pytest
 from click.testing import CliRunner
 
@@ -7,3 +8,4 @@ from click.testing import CliRunner
 def clicker():
     """clicker fixture"""
     yield CliRunner()
+{%- endif %}

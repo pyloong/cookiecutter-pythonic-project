@@ -1,14 +1,13 @@
 """Test"""
 import os
 import re
-from sys import version_info
+from pathlib import Path
 
 import pytest
-import sh
 from binaryornot.check import is_binary
+from pytest_cookies.plugin import Result
 
 cookiecutter_variable_pattern = re.compile(r"{{(\s?cookiecutter)[.](.*?)}}")
-current_python_version = f'{version_info.major}.{version_info.minor}'
 
 SUPPORTED_COMBINATIONS = [
     {"index_server": "none", "use_pipenv": "n"},
@@ -51,13 +50,19 @@ def check_paths(paths):
             assert match is None, msg.format(path)
 
 
+def assert_bake_ok(result: Result):
+    """Check bake result is ok"""
+    assert result.exit_code == 0
+    assert result.project.isdir()
+    assert result.project.isdir()
+
+
 @pytest.mark.parametrize("context_override", SUPPORTED_COMBINATIONS, ids=_fixture_id)
 def test_project_generation(cookies, context_override):
     """Test that project is generated and fully rendered."""
     result = cookies.bake(extra_context={**context_override})
-    assert result.exit_code == 0
-    assert result.project.isdir()
-    assert result.exception is None
+
+    assert_bake_ok(result)
 
     paths = build_files_list(str(result.project))
     assert paths
@@ -71,9 +76,8 @@ def test_docker_invokes(cookies, use_dicker, expected_result):
     """Test generated project and use docker"""
     result = cookies.bake(extra_context={"use_docker": use_dicker})
 
-    assert result.exit_code == 0
-    assert result.exception is None
-    assert result.project.isdir()
+    assert_bake_ok(result)
+
     exist = [
         os.path.isfile(os.path.join(str(result.project), "Dockerfile")),
         os.path.isfile(os.path.join(str(result.project), ".dockerignore")),
@@ -98,14 +102,21 @@ def test_index_server_invokes(cookies, use_pipenv, index_server, expected_result
         extra_context={"use_pipenv": use_pipenv, "index_server": index_server}
     )
 
-    assert result.exit_code == 0
-    assert result.exception is None
-    assert result.project.isdir()
+    assert_bake_ok(result)
 
     assert os.path.isfile(os.path.join(str(result.project), expected_result[0]))
     with open(os.path.join(str(result.project), expected_result[0]), "r") as file:
         data = file.read()
         assert expected_result[1] in data
+
+
+def has_keyword(filename: Path, keyword: str) -> bool:
+    """Check file has keyword"""
+    if filename.is_file():
+        with open(str(filename), 'r') as file:
+            txt = file.read()
+            return keyword in txt
+    return False
 
 
 @pytest.mark.parametrize(
@@ -115,34 +126,40 @@ def test_use_src_layout_invokes(cookies, use_src_layout, except_value):
     """Test layout"""
     result = cookies.bake(extra_context={"use_src_layout": use_src_layout})
 
-    assert result.exit_code == 0
-    assert result.exception is None
-    assert result.project.isdir()
+    assert_bake_ok(result)
+
     assert os.path.exists(os.path.join(result.project, "src")) == except_value
+    assert has_keyword(Path(result.project, 'tox.ini'), 'src') == except_value
+    assert has_keyword(Path(result.project, 'setup.cfg'), 'src') == except_value
 
 
 @pytest.mark.parametrize(["ci_tools", "expect_value"], [("none", "")])
 def test_ci_tools_invokes(cookies, ci_tools, expect_value):
     """Test ci tools"""
     result = cookies.bake(extra_context={"ci_tools": ci_tools})
-    assert result.exit_code == 0
-    assert result.exception is None
-    assert result.project.isdir()
+
+    assert_bake_ok(result)
+
     assert os.path.exists(os.path.join(result.project, expect_value))
 
 
 @pytest.mark.parametrize(
-    "context_override",
+    'init_bootstrap, has_cmdline',
     [
-        {"python_version": current_python_version, "use_pipenv": "y"},
-        {"python_version": current_python_version, "use_pipenv": "n"},
-    ],
+        ('y', True),
+        ('n', False)
+    ]
 )
-def test_generated_project_tox_cmd(cookies, context_override):
-    """Generated project should pass tox."""
-    result = cookies.bake(extra_context=context_override)
+def test_init_bootstrap(cookies, init_bootstrap, has_cmdline):
+    """Test use bootstrap"""
+    result = cookies.bake(extra_context={'init_bootstrap': init_bootstrap})
 
-    try:
-        sh.tox(_cwd=str(result.project))    # pylint: disable=no-member
-    except sh.ErrorReturnCode as ex:
-        pytest.fail(ex.stdout.decode())
+    assert_bake_ok(result)
+
+    exist_cmdline_file = False
+    for _, _, files in os.walk(result.project):
+        for file in files:
+            if file == 'cmdline.py':
+                exist_cmdline_file = True
+    assert exist_cmdline_file == has_cmdline
+    assert has_keyword(Path(result.project, 'setup.cfg'), 'cmdline') == has_cmdline

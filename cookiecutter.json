@@ -22,5 +22,6 @@
         "none",
         "Gitlab",
         "Github"
-    ]
+    ],
+    "init_bootstrap": "n"
 }
