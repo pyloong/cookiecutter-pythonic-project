@@ -7,25 +7,26 @@ import pytest
 from binaryornot.check import is_binary
 from pytest_cookies.plugin import Result
 
-cookiecutter_variable_pattern = re.compile(r"{{(\s?cookiecutter)[.](.*?)}}")
+cookiecutter_variable_pattern = re.compile(r'{{(\s?cookiecutter)[.](.*?)}}')
 
 SUPPORTED_COMBINATIONS = [
-    {"index_server": "none", "use_pipenv": "n"},
-    {"index_server": "aliyun", "use_pipenv": "y"},
-    {"index_server": "aliyun", "use_pipenv": "n"},
-    {"index_server": "tendata", "use_pipenv": "y"},
-    {"index_server": "tendata", "use_pipenv": "n"},
-    {"ci_tools": "none"},
-    {"ci_tools": "Gitlab"},
-    {"ci_tools": "Github"},
-    {"use_src_layout": "y"},
-    {"use_src_layout": "n"},
+    {'index_server': 'index_server'},
+    {'index_server': 'aliyun'},
+    {'index_server': 'tendata'},
+    {'use_pipenv': 'n'},
+    {'ci_tools': 'none'},
+    {'ci_tools': 'Gitlab'},
+    {'ci_tools': 'Github'},
+    {'use_src_layout': 'y'},
+    {'use_src_layout': 'n'},
+    {'init_bootstrap': 'n'},
+    {'init_bootstrap': 'y'},
 ]
 
 
 def _fixture_id(ctx):
     """Helper to get a user friendly test name from the parametrized context."""
-    return "-".join(f"{key}:{value}" for key, value in ctx.items())
+    return '-'.join(f'{key}:{value}' for key, value in ctx.items())
 
 
 def build_files_list(root_dir):
@@ -44,9 +45,9 @@ def check_paths(paths):
         if is_binary(path):
             continue
 
-        for line in open(path, "r"):
+        for line in open(path, 'r'):
             match = cookiecutter_variable_pattern.search(line)
-            msg = "cookiecutter variable not replaced in {}"
+            msg = 'cookiecutter variable not replaced in {}'
             assert match is None, msg.format(path)
 
 
@@ -57,7 +58,7 @@ def assert_bake_ok(result: Result):
     assert result.project.isdir()
 
 
-@pytest.mark.parametrize("context_override", SUPPORTED_COMBINATIONS, ids=_fixture_id)
+@pytest.mark.parametrize('context_override', SUPPORTED_COMBINATIONS, ids=_fixture_id)
 def test_project_generation(cookies, context_override):
     """Test that project is generated and fully rendered."""
     result = cookies.bake(extra_context={**context_override})
@@ -70,36 +71,36 @@ def test_project_generation(cookies, context_override):
 
 
 @pytest.mark.parametrize(
-    ["use_dicker", "expected_result"], [("y", [True, True]), ("n", [False, False])]
+    ['use_dicker', 'expected_result'], [("y", [True, True]), ("n", [False, False])]
 )
 def test_docker_invokes(cookies, use_dicker, expected_result):
     """Test generated project and use docker"""
-    result = cookies.bake(extra_context={"use_docker": use_dicker})
+    result = cookies.bake(extra_context={'use_docker': use_dicker})
 
     assert_bake_ok(result)
 
     exist = [
-        os.path.isfile(os.path.join(str(result.project), "Dockerfile")),
-        os.path.isfile(os.path.join(str(result.project), ".dockerignore")),
+        os.path.isfile(os.path.join(str(result.project), 'Dockerfile')),
+        os.path.isfile(os.path.join(str(result.project), '.dockerignore')),
     ]
     assert exist == expected_result
 
 
 @pytest.mark.parametrize(
-    ["use_pipenv", "index_server", "expected_result"],
+    ['use_pipenv', 'index_server', 'expected_result'],
     [
-        ("y", "none", ["Pipfile", "pypi"]),
-        ("n", "none", ["requirements.txt", ""]),
-        ("y", "aliyun", ["Pipfile", "aliyun"]),
-        ("n", "aliyun", ["requirements.txt", "aliyun"]),
-        ("y", "tendata", ["Pipfile", "tendata"]),
-        ("n", "tendata", ["requirements.txt", "tendata"]),
+        ('y', 'none', ['Pipfile', 'pypi']),
+        ('n', 'none', ['requirements.txt', '']),
+        ('y', 'aliyun', ['Pipfile', 'aliyun']),
+        ('n', 'aliyun', ['requirements.txt', 'aliyun']),
+        ('y', 'tendata', ['Pipfile', 'tendata']),
+        ('n', 'tendata', ['requirements.txt', 'tendata']),
     ],
 )
 def test_index_server_invokes(cookies, use_pipenv, index_server, expected_result):
     """Test generated project"""
     result = cookies.bake(
-        extra_context={"use_pipenv": use_pipenv, "index_server": index_server}
+        extra_context={'use_pipenv': use_pipenv, 'index_server': index_server}
     )
 
     assert_bake_ok(result)
@@ -120,23 +121,23 @@ def has_keyword(filename: Path, keyword: str) -> bool:
 
 
 @pytest.mark.parametrize(
-    ["use_src_layout", "except_value"], [("y", True), ("n", False)]
+    ['use_src_layout', 'except_value'], [('y', True), ('n', False)]
 )
 def test_use_src_layout_invokes(cookies, use_src_layout, except_value):
     """Test layout"""
-    result = cookies.bake(extra_context={"use_src_layout": use_src_layout})
+    result = cookies.bake(extra_context={'use_src_layout': use_src_layout})
 
     assert_bake_ok(result)
 
-    assert os.path.exists(os.path.join(result.project, "src")) == except_value
+    assert os.path.exists(os.path.join(result.project, 'src')) == except_value
     assert has_keyword(Path(result.project, 'tox.ini'), 'src') == except_value
     assert has_keyword(Path(result.project, 'setup.cfg'), 'src') == except_value
 
 
-@pytest.mark.parametrize(["ci_tools", "expect_value"], [("none", "")])
+@pytest.mark.parametrize(['ci_tools', 'expect_value'], [('none', '')])
 def test_ci_tools_invokes(cookies, ci_tools, expect_value):
     """Test ci tools"""
-    result = cookies.bake(extra_context={"ci_tools": ci_tools})
+    result = cookies.bake(extra_context={'ci_tools': ci_tools})
 
     assert_bake_ok(result)
 

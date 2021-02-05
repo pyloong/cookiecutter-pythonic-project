@@ -6,12 +6,12 @@ from tests.conftest import current_python_version
 
 
 @pytest.mark.parametrize(
-    "context_override",
+    'context_override',
     [
-        {"python_version": current_python_version, "use_pipenv": "y"},
-        {"python_version": current_python_version, "use_pipenv": "n"},
-        {"python_version": current_python_version, "init_bootstrap": "n"},
-        {"python_version": current_python_version, "init_bootstrap": "y"},
+        {'python_version': current_python_version, 'use_pipenv': 'y'},
+        {'python_version': current_python_version, 'use_pipenv': 'n'},
+        {'python_version': current_python_version, 'init_bootstrap': 'n'},
+        {'python_version': current_python_version, 'init_bootstrap': 'y'},
     ],
 )
 def test_generated_project_tox_cmd(cookies, context_override):
