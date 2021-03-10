@@ -18,9 +18,7 @@ _settings_files = [
 
 # User configuration. It will be created automatically by the pip installer .
 _external_files = [
-    # Why not use Path ?
-    # https://github.com/rochacbruno/dynaconf/issues/494
-    os.path.join(sys.prefix, 'etc', '{{ cookiecutter.project_slug }}', 'settings.yml')
+    Path(sys.prefix, 'etc', '{{ cookiecutter.project_slug }}', 'settings.yml')
 ]
 
 {%  with %}{% set project_slug_upper = cookiecutter.project_slug|upper() %}
