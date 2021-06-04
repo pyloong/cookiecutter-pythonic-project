@@ -1,9 +1,9 @@
 {
     "project_name": "My Project",
-    "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
+    "project_slug": "{{ cookiecutter.project_name.lower()|trim()|replace(' ', '_')|replace('-', '_')|replace('.', '_') }}",
     "project_description": "My Awesome Project!",
     "author_name": "Author",
-    "author_email": "{{ cookiecutter.author_name.lower()|replace(' ', '-') }}@example.com",
+    "author_email": "{{ cookiecutter.author_name.lower()|trim()|replace(' ', '-') }}@example.com",
     "version": "0.1.0",
     "python_version": [
         "3.7",
@@ -14,8 +14,7 @@
     "use_pipenv": "y",
     "index_server": [
         "none",
-        "aliyun",
-        "tendata"
+        "aliyun"
     ],
     "use_docker": "n",
     "ci_tools": [
@@ -23,5 +22,5 @@
         "Gitlab",
         "Github"
     ],
-    "init_bootstrap": "n"
+    "init_skeleton": "n"
 }

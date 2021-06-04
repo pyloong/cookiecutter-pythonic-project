@@ -177,7 +177,7 @@ venv.bak/
 ### Jebrains template
 .idea
 
-{%- if cookiecutter.init_bootstrap|lower == 'y' %}
+{%- if cookiecutter.init_skeleton|lower == 'y' %}
 ### Dynaconf config
 **/*.local.yml
 **/.secrets.yml

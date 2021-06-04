@@ -1,5 +1,5 @@
 """Test config"""
-{%- if cookiecutter.init_bootstrap == 'y' %}
+{%- if cookiecutter.init_skeleton == 'y' %}
 import pytest
 from click.testing import CliRunner
 

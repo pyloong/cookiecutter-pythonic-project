@@ -19,8 +19,8 @@ SUPPORTED_COMBINATIONS = [
     {'ci_tools': 'Github'},
     {'use_src_layout': 'y'},
     {'use_src_layout': 'n'},
-    {'init_bootstrap': 'n'},
-    {'init_bootstrap': 'y'},
+    {'init_skeleton': 'n'},
+    {'init_skeleton': 'y'},
 ]
 
 
@@ -54,8 +54,8 @@ def check_paths(paths):
 def assert_bake_ok(result: Result):
     """Check bake result is ok"""
     assert result.exit_code == 0
-    assert result.project.isdir()
-    assert result.project.isdir()
+    assert result.project_path.is_dir()
+    assert result.project_path.is_dir()
 
 
 @pytest.mark.parametrize('context_override', SUPPORTED_COMBINATIONS, ids=_fixture_id)
@@ -65,9 +65,30 @@ def test_project_generation(cookies, context_override):
 
     assert_bake_ok(result)
 
-    paths = build_files_list(str(result.project))
+    paths = build_files_list(str(result.project_path))
     assert paths
     check_paths(paths)
+
+
+@pytest.mark.parametrize(
+    ['project_name', 'expected_result'],
+    [
+        ('', 'my_project'),
+        ('My Project', 'my_project'),
+        (' My Project', 'my_project'),
+        ('My Project ', 'my_project'),
+        (' My Project ', 'my_project'),
+        ('  My Project ', 'my_project'),
+    ]
+)
+def test_check_project_slug(cookies, project_name, expected_result):
+    """Test check project_slug has spaces."""
+    extra_context = {'use_src_layout': 'n'}
+    if project_name:
+        extra_context.update({'project_name': project_name})
+    result = cookies.bake(extra_context=extra_context)
+    package_path = result.project_path / expected_result
+    assert package_path.exists()
 
 
 @pytest.mark.parametrize(
@@ -80,8 +101,8 @@ def test_docker_invokes(cookies, use_dicker, expected_result):
     assert_bake_ok(result)
 
     exist = [
-        os.path.isfile(os.path.join(str(result.project), 'Dockerfile')),
-        os.path.isfile(os.path.join(str(result.project), '.dockerignore')),
+        os.path.isfile(os.path.join(str(result.project_path), 'Dockerfile')),
+        os.path.isfile(os.path.join(str(result.project_path), '.dockerignore')),
     ]
     assert exist == expected_result
 
@@ -93,8 +114,6 @@ def test_docker_invokes(cookies, use_dicker, expected_result):
         ('n', 'none', ['requirements.txt', '']),
         ('y', 'aliyun', ['Pipfile', 'aliyun']),
         ('n', 'aliyun', ['requirements.txt', 'aliyun']),
-        ('y', 'tendata', ['Pipfile', 'tendata']),
-        ('n', 'tendata', ['requirements.txt', 'tendata']),
     ],
 )
 def test_index_server_invokes(cookies, use_pipenv, index_server, expected_result):
@@ -105,8 +124,8 @@ def test_index_server_invokes(cookies, use_pipenv, index_server, expected_result
 
     assert_bake_ok(result)
 
-    assert os.path.isfile(os.path.join(str(result.project), expected_result[0]))
-    with open(os.path.join(str(result.project), expected_result[0]), "r") as file:
+    assert os.path.isfile(os.path.join(str(result.project_path), expected_result[0]))
+    with open(os.path.join(str(result.project_path), expected_result[0]), "r") as file:
         data = file.read()
         assert expected_result[1] in data
 
@@ -129,38 +148,38 @@ def test_use_src_layout_invokes(cookies, use_src_layout, except_value):
 
     assert_bake_ok(result)
 
-    assert os.path.exists(os.path.join(result.project, 'src')) == except_value
-    assert has_keyword(Path(result.project, 'tox.ini'), 'src') == except_value
-    assert has_keyword(Path(result.project, 'setup.cfg'), 'src') == except_value
+    assert (result.project_path / 'src').exists() == except_value
+    assert has_keyword(result.project_path / 'tox.ini', 'src') == except_value
+    assert has_keyword(result.project_path / 'setup.cfg', 'src') == except_value
 
 
 @pytest.mark.parametrize(['ci_tools', 'expect_value'], [('none', '')])
 def test_ci_tools_invokes(cookies, ci_tools, expect_value):
     """Test ci tools"""
     result = cookies.bake(extra_context={'ci_tools': ci_tools})
-
+    print(result.exception)
     assert_bake_ok(result)
 
-    assert os.path.exists(os.path.join(result.project, expect_value))
+    assert os.path.exists(os.path.join(result.project_path, expect_value))
 
 
 @pytest.mark.parametrize(
-    'init_bootstrap, has_cmdline',
+    'init_skeleton, has_cmdline',
     [
         ('y', True),
         ('n', False)
     ]
 )
-def test_init_bootstrap(cookies, init_bootstrap, has_cmdline):
+def test_init_skeleton(cookies, init_skeleton, has_cmdline):
     """Test use bootstrap"""
-    result = cookies.bake(extra_context={'init_bootstrap': init_bootstrap})
+    result = cookies.bake(extra_context={'init_skeleton': init_skeleton})
 
     assert_bake_ok(result)
 
     exist_cmdline_file = False
-    for _, _, files in os.walk(result.project):
+    for _, _, files in os.walk(result.project_path):
         for file in files:
             if file == 'cmdline.py':
                 exist_cmdline_file = True
     assert exist_cmdline_file == has_cmdline
-    assert has_keyword(Path(result.project, 'setup.cfg'), 'cmdline') == has_cmdline
+    assert has_keyword(Path(result.project_path, 'setup.cfg'), 'cmdline') == has_cmdline

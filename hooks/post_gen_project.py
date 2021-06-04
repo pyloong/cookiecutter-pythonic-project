@@ -59,10 +59,10 @@ def setup_ci_tools(flag: str):
         shutil.rmtree('.github', ignore_errors=True)
 
 
-def setup_bootstrap(flag: str):
+def setup_skeleton(flag: str):
     """
-    Setup bootstrap
-    If flag == y , keep bootstrap.
+    Setup skeleton
+    If flag == y , keep skeleton.
     :param flag:
     :return:
     """
@@ -86,10 +86,10 @@ if __name__ == "__main__":
     USE_PIPENV = '{{ cookiecutter.use_pipenv|lower }}'
     USE_DOCKER = '{{ cookiecutter.use_docker|lower }}'
     CI_TOOLS = '{{ cookiecutter.ci_tools|lower }}'
-    INIT_BOOTSTRAP = '{{ cookiecutter.init_bootstrap|lower }}'
+    INIT_SKELETON = '{{ cookiecutter.init_skeleton|lower }}'
 
     setup_src_layout(SRC_LAYOUT)
     setup_pipenv(USE_PIPENV)
     setup_docker(USE_DOCKER)
     setup_ci_tools(CI_TOOLS)
-    setup_bootstrap(INIT_BOOTSTRAP)
+    setup_skeleton(INIT_SKELETON)
