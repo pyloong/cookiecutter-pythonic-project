@@ -17,7 +17,7 @@ verify_ssl = true
 {%- endwith %}
 
 [packages]
-{%- if cookiecutter.init_bootstrap|lower == 'y' %}
+{%- if cookiecutter.init_skeleton|lower == 'y' %}
 dynaconf = "*"
 click = "*"
 {%- endif %}

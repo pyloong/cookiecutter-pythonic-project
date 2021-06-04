@@ -1,0 +1,9 @@
+include LICENSE
+include MANIFEST.in
+include *.md
+include cookiecutter.json
+graft hooks
+graft tests
+graft {{ cookiecutter.project_slug }}
+global-exclude __pycache__
+global-exclude *.py[co]

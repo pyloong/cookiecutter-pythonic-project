@@ -8,7 +8,7 @@
 {% endif -%}
 {% endwith -%}
 
-{% if cookiecutter.init_bootstrap|lower == 'y' -%}
+{% if cookiecutter.init_skeleton|lower == 'y' -%}
 dynaconf
 click
 {% endif -%}

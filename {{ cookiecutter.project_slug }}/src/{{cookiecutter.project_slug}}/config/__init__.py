@@ -31,6 +31,6 @@ settings = Dynaconf(
     # env_switcher='{{ project_slug_upper }}_ENV',
     lowercase_read=False,  # If true, can't use `settings.foo`, but can only use `settings.FOO`
     includes=_external_files,  # Customs settings.
-    base_dir=_base_dir,  # `settings.BASEDIR`
+    base_dir=_base_dir,  # `settings.BASE_DIR`
 )
 {% endwith %}
