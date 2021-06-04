@@ -1,0 +1,11 @@
+include LICENSE
+include MANIFEST.in
+include *.md
+graft docs
+graft tests
+graft {% if cookiecutter.use_src_layout|lower == 'y' %}src/{% endif %}{{ cookiecutter.project_slug }}
+{%- if cookiecutter.init_skeleton == 'y' %}
+recursive-include {% if cookiecutter.use_src_layout|lower == 'y' %}src/{% endif %}{{ cookiecutter.project_slug }}/*.yml
+{%- endif %}
+global-exclude __pycache__
+global-exclude *.py[co]
