@@ -4,7 +4,7 @@ import shutil
 from pathlib import Path
 
 
-def remove_file(file: str, *files):
+def remove_file(file: Path, *files: Path):
     """
     Remove file
     :param file:
@@ -32,9 +32,9 @@ def setup_pipenv(flag: str):
     :return:
     """
     if flag != 'y':
-        remove_file("Pipfile")
+        remove_file(Path("Pipfile"))
     else:
-        remove_file("requirements.txt")
+        remove_file(Path("requirements.txt"))
 
 
 def setup_docker(flag: str):
@@ -44,7 +44,7 @@ def setup_docker(flag: str):
     :return:
     """
     if flag != 'y':
-        remove_file('Dockerfile', '.dockerignore')
+        remove_file(Path('Dockerfile'), Path('.dockerignore'))
 
 
 def setup_ci_tools(flag: str):
@@ -54,7 +54,7 @@ def setup_ci_tools(flag: str):
     :return:
     """
     if flag != 'gitlab':
-        remove_file('.gitlab-ci.yml')
+        remove_file(Path('.gitlab-ci.yml'))
     if flag != 'github':
         shutil.rmtree('.github', ignore_errors=True)
 
@@ -76,7 +76,7 @@ def setup_skeleton(flag: str):
             src_path / 'cmdline.py',
             src_path / 'log.py',
             test_path / 'test_cmdline.py',
-            test_path / 'test_log.py'
+            test_path / 'test_log.py',
         )
 
 
