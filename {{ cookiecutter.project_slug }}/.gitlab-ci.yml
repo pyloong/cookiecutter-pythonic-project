@@ -32,7 +32,8 @@ build:
   stage: build
   when: on_success
   script:
-    - python setup.py bdist_wheel
+    - pip install -U build twine
+    - python -m build
   artifacts:
     paths:
       - dist/*.whl
