@@ -368,6 +368,7 @@ hello_world
 
 直接运行 `tox` 检查项目状态：
 
+<!-- markdownlint-disable MD013 MD033-->
 ```text
 ❯ tox
 .package create: /tmp/test/hello_world/.tox/.package
@@ -426,6 +427,7 @@ ________________________________________________________________________________
   pylint: commands succeeded                                                                                                                                               
   congratulations :)                                                                                                                                                       
 ```
+<!-- markdownlint-restore -->
 
 运行 `tox` 进行自动化测试，可以看到自动执行了 `py37` 的测试，
 [isort](https://pycqa.github.io/isort/) 的包导入检查，
