@@ -1,0 +1,28 @@
+site_name: cookiecutter-pythonic-project
+
+theme:
+  name: material
+  langage: zh
+  features:
+    - search.highlight
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - footnotes
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed
+
+repo_url: https://github.com/pyloong/cookiecutter-pythonic-project
+repo_name: pyloong/cookiecutter-pythonic-project
+site_url: https://pyloong.github.io/cookiecutter-pythonic-project/
+
+plugins:
+  - search
+
+nav:
+  - 文档: index.md
+  - 使用说明: usage.md
+  - 变更记录: changelog.md

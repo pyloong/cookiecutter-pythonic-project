@@ -4,17 +4,8 @@
 name: main
 
 on:
-  push:
-    branches:
-      - main
-      - develop
-    tags:
-      - "*"
-
-  pull_request:
-    branches:
-      - main
-      - develop
+  - push
+  - pull_request
 
 jobs:
   test:
@@ -27,7 +18,8 @@ jobs:
         python: [3.7, 3.8, 3.9]
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Code
+        uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: Set up Python ${{ matrix.python }} on ${{ matrix.os }}
@@ -43,7 +35,10 @@ jobs:
   linting:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v2
       - run: pip install tox
       - run: |
