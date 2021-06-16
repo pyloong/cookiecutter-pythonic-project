@@ -12,7 +12,6 @@ cookiecutter_variable_pattern = re.compile(r'{{(\s?cookiecutter)[.](.*?)}}')
 SUPPORTED_COMBINATIONS = [
     {'index_server': 'index_server'},
     {'index_server': 'aliyun'},
-    {'index_server': 'tendata'},
     {'use_pipenv': 'n'},
     {'ci_tools': 'none'},
     {'ci_tools': 'Gitlab'},
