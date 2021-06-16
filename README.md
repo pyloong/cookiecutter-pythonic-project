@@ -7,7 +7,7 @@
 一个使用 [Cookiecutter](https://github.com/cookiecutter/cookiecutter) 工具生成 Python 工程化项目的模板。
 
 - 文档: [https://pyloong.github.io/cookiecutter-pythonic-project/](https://pyloong.github.io/cookiecutter-pythonic-project/)
-- GitHub: [https://github.com/cookiecutter/cookiecutter](https://github.com/cookiecutter/cookiecutter)
+- GitHub: [https://github.com/pyloong/cookiecutter-pythonic-project](https://github.com/pyloong/cookiecutter-pythonic-project)
 
 ## 特性
 
