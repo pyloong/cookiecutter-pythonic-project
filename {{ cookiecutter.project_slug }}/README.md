@@ -15,4 +15,4 @@ TODO
 
 ## Develop
 
-You may need to read the [develop document](.docs/development.md) to use SRC Layout in your IDE.
+You may need to read the [develop document](./docs/development.md) to use SRC Layout in your IDE.
