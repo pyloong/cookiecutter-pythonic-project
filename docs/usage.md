@@ -40,10 +40,8 @@ cookiecutter https://github.com/pyloong/cookiecutter-pythonic-project
 You've downloaded /home/kevin/.cookiecutters/cookiecutter-pythonic-project before. Is it okay to delete and re-download it? [yes]: 
 ```
 
-当你不是第一次使用时， [Cookiecutter](https://github.com/cookiecutter/cookiecutter) 可能会提示你要不要更新本地的项目模板。
-[Cookiecutter](https://github.com/cookiecutter/cookiecutter) 为了方便本地使用，会在首次运行是将项目模板下载到本地，方便
-以后直接读取使用。所以如果仓库代码更新了，你需要先让 [Cookiecutter](https://github.com/cookiecutter/cookiecutter) 更新
-最新的项目模板，然后再生成。当然如果你不想使用新功能，也可以跳过更新，继续生成项目。
+在使用 [Cookiecutter](https://github.com/cookiecutter/cookiecutter) 时，会将项目模板下载到本地作为缓存。如果不是第一次使用，
+且项目木板有更新时，建议根据提示重新下载项目模板。如果不需要可以跳过，使用上次下载的缓存记录生成项目。
 
 ### 项目名称(project_name)
 
@@ -118,7 +116,7 @@ project_slug [hello_world]:
 project_description [My Awesome Project!]: This is my first python package, i love it.
 author_name [Author]: ming
 author_email [ming@example.com]: ming@gmail.com
-version [0.1.0]: 0.1.0
+version [0.1.0]:
 ```
 
 输入合法的项目版本号。
@@ -136,12 +134,13 @@ project_slug [hello_world]:
 project_description [My Awesome Project!]: This is my first python package, i love it.
 author_name [Author]: ming
 author_email [ming@example.com]: ming@gmail.com
-version [0.1.0]: 0.1.0    
+version [0.1.0]:
 Select python_version:
 1 - 3.7
 2 - 3.8
 3 - 3.9
-Choose from 1, 2, 3 [1]: 
+4 - 3.10
+Choose from 1, 2, 3, 4 [1]:
 ```
 
 选择使用的 Python 版本。默认是 `Python 3.7` 。选择的版本号会出现在打包描述文件 `setup.cfg` 和依赖管理文件 `Pipfile` 文件中。
@@ -157,12 +156,13 @@ project_slug [hello_world]:
 project_description [My Awesome Project!]: This is my first python package, i love it.
 author_name [Author]: ming
 author_email [ming@example.com]: ming@gmail.com
-version [0.1.0]: 0.1.0    
+version [0.1.0]:
 Select python_version:
 1 - 3.7
 2 - 3.8
 3 - 3.9
-Choose from 1, 2, 3 [1]: 
+4 - 3.10
+Choose from 1, 2, 3, 4 [1]:
 use_src_layout [y]:
 ```
 
@@ -184,12 +184,13 @@ project_slug [hello_world]:
 project_description [My Awesome Project!]: This is my first python package, i love it.
 author_name [Author]: ming
 author_email [ming@example.com]: ming@gmail.com
-version [0.1.0]: 0.1.0    
+version [0.1.0]:
 Select python_version:
 1 - 3.7
 2 - 3.8
 3 - 3.9
-Choose from 1, 2, 3 [1]: 
+4 - 3.10
+Choose from 1, 2, 3, 4 [1]:
 use_src_layout [y]: 
 use_pipenv [y]: 
 ```
@@ -217,13 +218,14 @@ Select python_version:
 1 - 3.7
 2 - 3.8
 3 - 3.9
-Choose from 1, 2, 3 [1]: 
+4 - 3.10
+Choose from 1, 2, 3, 4 [1]:
 use_src_layout [y]: 
 use_pipenv [y]: 
 Select index_server:
 1 - none
 2 - aliyun
-Choose from 1, 2 [1]: 2
+Choose from 1, 2 [1]:
 ```
 
 选择使用的 Python 包索引服务器，默认不选，是使用 [https://pypi.org/](https://pypi.org/) 。提供了一个国内的加速地址
@@ -246,13 +248,14 @@ Select python_version:
 1 - 3.7
 2 - 3.8
 3 - 3.9
-Choose from 1, 2, 3 [1]: 
+4 - 3.10
+Choose from 1, 2, 3, 4 [1]:
 use_src_layout [y]: 
 use_pipenv [y]: 
 Select index_server:
 1 - none
 2 - aliyun
-Choose from 1, 2 [1]: 2
+Choose from 1, 2 [1]:
 use_docker [n]: 
 ```
 
@@ -275,19 +278,20 @@ Select python_version:
 1 - 3.7
 2 - 3.8
 3 - 3.9
-Choose from 1, 2, 3 [1]: 
+4 - 3.10
+Choose from 1, 2, 3, 4 [1]:
 use_src_layout [y]: 
 use_pipenv [y]: 
 Select index_server:
 1 - none
 2 - aliyun
-Choose from 1, 2 [1]: 2
+Choose from 1, 2 [1]:
 use_docker [n]: 
 Select ci_tools:
 1 - none
 2 - Gitlab
 3 - Github
-Choose from 1, 2, 3 [1]: 3
+Choose from 1, 2, 3 [1]:
 ```
 
 选择使用的 CI 工具，可选的有 `Gitlab` 和 `Github` 。如果选择一个 CI 工具，默认会生成项目的测试、构建、发布到索引服务器的三步操作。
@@ -307,19 +311,20 @@ Select python_version:
 1 - 3.7
 2 - 3.8
 3 - 3.9
-Choose from 1, 2, 3 [1]: 
+4 - 3.10
+Choose from 1, 2, 3, 4 [1]:
 use_src_layout [y]: 
 use_pipenv [y]: 
 Select index_server:
 1 - none
 2 - aliyun
-Choose from 1, 2 [1]: 2
+Choose from 1, 2 [1]:
 use_docker [n]: 
 Select ci_tools:
 1 - none
 2 - Gitlab
 3 - Github
-Choose from 1, 2, 3 [1]: 3
+Choose from 1, 2, 3 [1]:
 init_skeleton [n]:
 ```
 
@@ -366,70 +371,123 @@ hello_world
 - `src` ：使用了 SRC 目录结构生成目录，用来放置项目的包
 - `tests` ：测试目录，用来放置对 `src` 下面的包做测试的目录。
 
-直接运行 `tox` 检查项目状态：
+## 使用项目
+
+项目模板生成后，默认会在的当前目录生成一个可用的 Python 项目。
+
+Python 项目开发时，强烈建议使用虚拟环境管理 Python 项目的依赖。在前面生成项目模板是，会默认使用 [pipenv](https://github.com/pypa/pipenv)
+作为虚拟环境管理工具。当然你可以不使用 pipenv ，选择更常见的 [Virtualenv](https://github.com/pypa/virtualenv) 。
+
+后续步骤都假设你已经了解 [pipenv](https://github.com/pypa/pipenv) 并使用 [pipenv](https://github.com/pypa/pipenv) 。
+
+如果没有安装 [pipenv](https://github.com/pypa/pipenv) ，可以使用 pip 命令安装。为了方便使用，推荐在系统环境下或者当前用户环境下安装 。
+
+```bash
+## 升级 pip
+pip install -U pip
+pip install -U pipenv
+
+## 进入项目目录
+cd  hello_world
+
+## 创建虚拟环境，并指定 pipenv 自动安装开发环境依赖
+pipenv install -d
+
+## 进入虚拟环境
+pipenv shell
+```
+
+为了减少开发过程中遇到模板本身错误导致开发异常的情况，在开发前首先运行一遍自动化测试，直接执行 `tox` 命令。
 
 <!-- markdownlint-disable MD013 MD033-->
 ```text
+❯ pipenv install -d
+Creating a virtualenv for this project...
+Pipfile: /tmp/test/hello_world/Pipfile
+Using /usr/bin/python3.7m (3.7.3) to create virtualenv...
+⠹ Creating virtual environment...created virtual environment CPython3.7.3.final.0-64 in 115ms
+  creator CPython3Posix(dest=/home/foo/.virtualenvs/hello_world-jr7PFJwh, clear=False, no_vcs_ignore=False, global=False)
+  seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/home/kevin/.local/share/virtualenv)
+    added seed packages: pip==21.2.4, setuptools==58.1.0, wheel==0.37.0
+  activators BashActivator,CShellActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
+
+✔ Successfully created virtual environment!
+Virtualenv location: /home/foo/.virtualenvs/hello_world-jr7PFJwh
+Pipfile.lock not found, creating...
+Locking [dev-packages] dependencies...
+Building requirements...
+Resolving dependencies...
+✔ Success!
+Locking [packages] dependencies...
+Updated Pipfile.lock (25be9b)!
+Installing dependencies from Pipfile.lock (25be9b)...
+      ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 28/28 — 00:00:09
+To activate this project's virtualenv, run pipenv shell.
+Alternatively, run a command inside the virtualenv with pipenv run.
+❯ pipenv shell
+Launching subshell in virtual environment...
+❯  . /home/foo/.virtualenvs/hello_world-jr7PFJwh/bin/activate
 ❯ tox
 .package create: /tmp/test/hello_world/.tox/.package
 .package installdeps: setuptools, wheel
 py37 create: /tmp/test/hello_world/.tox/py37
 py37 installdeps: pipenv
 py37 inst: /tmp/test/hello_world/.tox/.tmp/package/1/hello_world-0.1.0.tar.gz
-py37 installed: appdirs==1.4.4,certifi==2021.5.30,distlib==0.3.2,filelock==3.0.12,hello-world @ file:///tmp/test/hello_world/.tox/.tmp/package/1/hello_world-0.1.0.tar.gz,importlib-metadata==4.5.0,pipenv==2021.5.29,six==1.16.0,typing-extensions==3.10.0.0,virtualenv==20.4.7,virtualenv-clone==0.5.4,zipp==3.4.1
-py37 run-test-pre: PYTHONHASHSEED='290397051'
-py37 run-test: commands[0] | pipenv install -d
+py37 installed: backports.entry-points-selectable==1.1.0,certifi==2021.10.8,distlib==0.3.3,filelock==3.3.1,hello-world @ file:///tmp/test/hello_world/.tox/.tmp/package/1/hello_world-0.1.0.tar.gz,importlib-metadata==4.8.1,pipenv==2021.5.29,platformdirs==2.4.0,six==1.16.0,typing-extensions==3.10.0.2,virtualenv==20.8.1,virtualenv-clone==0.5.7,zipp==3.6.0
+py37 run-test-pre: PYTHONHASHSEED='2139583814'
+py37 run-test: commands[0] | pipenv sync -d
 Courtesy Notice: Pipenv found itself running within a virtual environment, so it will automatically use that environment, instead of creating its own for any project. You can set PIPENV_IGNORE_VIRTUALENVS=1 to force pipenv to ignore that environment and create its own instead. You can set PIPENV_VERBOSITY=-1 to suppress this warning.
-Pipfile.lock not found, creating...
-Locking [dev-packages] dependencies...
-Building requirements...
-Resolving dependencies...
-✔ Success! 
-Locking [packages] dependencies...
-Updated Pipfile.lock (8c4ae8)!
-Installing dependencies from Pipfile.lock (8c4ae8)...
-  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 18/18 — 00:00:02
+Installing dependencies from Pipfile.lock (25be9b)...
+  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 19/19 — 00:00:05
+To activate this project's virtualenv, run pipenv shell.
+Alternatively, run a command inside the virtualenv with pipenv run.
+All dependencies are now up-to-date!
 py37 run-test: commands[1] | pytest
-=========================================================================== test session starts ===========================================================================
-platform linux -- Python 3.7.3, pytest-6.2.4, py-1.10.0, pluggy-0.13.1
+================================================================================================ test session starts ================================================================================================
+platform linux -- Python 3.7.3, pytest-6.2.5, py-1.10.0, pluggy-1.0.0
 cachedir: .tox/py37/.pytest_cache
 rootdir: /tmp/test/hello_world, configfile: setup.cfg, testpaths: tests
-plugins: cov-2.12.1
-collected 1 item                                                                                                                                                          
+plugins: cov-3.0.0
+collected 1 item
 
-tests/tests.py .                                                                                                                                                    [100%]
+tests/tests.py .                                                                                                                                                                                              [100%]
 
-============================================================================ 1 passed in 0.01s ============================================================================
+================================================================================================= 1 passed in 0.01s =================================================================================================
 isort create: /tmp/test/hello_world/.tox/isort
 isort installdeps: isort
 isort inst: /tmp/test/hello_world/.tox/.tmp/package/1/hello_world-0.1.0.tar.gz
-isort installed: hello-world @ file:///tmp/test/hello_world/.tox/.tmp/package/1/hello_world-0.1.0.tar.gz,isort==5.8.0
-isort run-test-pre: PYTHONHASHSEED='290397051'
+isort installed: hello-world @ file:///tmp/test/hello_world/.tox/.tmp/package/1/hello_world-0.1.0.tar.gz,isort==5.9.3
+isort run-test-pre: PYTHONHASHSEED='2139583814'
 isort run-test: commands[0] | isort . --check-only --diff
 Skipped 1 files
 pylint create: /tmp/test/hello_world/.tox/pylint
 pylint installdeps: pipenv
 pylint inst: /tmp/test/hello_world/.tox/.tmp/package/1/hello_world-0.1.0.tar.gz
-pylint installed: appdirs==1.4.4,certifi==2021.5.30,distlib==0.3.2,filelock==3.0.12,hello-world @ file:///tmp/test/hello_world/.tox/.tmp/package/1/hello_world-0.1.0.tar.gz,importlib-metadata==4.5.0,pipenv==2021.5.29,six==1.16.0,typing-extensions==3.10.0.0,virtualenv==20.4.7,virtualenv-clone==0.5.4,zipp==3.4.1
-pylint run-test-pre: PYTHONHASHSEED='290397051'
-pylint run-test: commands[0] | pipenv install -d
+pylint installed: backports.entry-points-selectable==1.1.0,certifi==2021.10.8,distlib==0.3.3,filelock==3.3.1,hello-world @ file:///tmp/test/hello_world/.tox/.tmp/package/1/hello_world-0.1.0.tar.gz,importlib-metadata==4.8.1,pipenv==2021.5.29,platformdirs==2.4.0,six==1.16.0,typing-extensions==3.10.0.2,virtualenv==20.8.1,virtualenv-clone==0.5.7,zipp==3.6.0
+pylint run-test-pre: PYTHONHASHSEED='2139583814'
+pylint run-test: commands[0] | pipenv sync -d
 Courtesy Notice: Pipenv found itself running within a virtual environment, so it will automatically use that environment, instead of creating its own for any project. You can set PIPENV_IGNORE_VIRTUALENVS=1 to force pipenv to ignore that environment and create its own instead. You can set PIPENV_VERBOSITY=-1 to suppress this warning.
-Installing dependencies from Pipfile.lock (8c4ae8)...
-  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 18/18 — 00:00:02
+Installing dependencies from Pipfile.lock (25be9b)...
+  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 19/19 — 00:00:05
+To activate this project's virtualenv, run pipenv shell.
+Alternatively, run a command inside the virtualenv with pipenv run.
+All dependencies are now up-to-date!
 pylint run-test: commands[1] | pylint tests src
 
--------------------------------------------------------------------
-Your code has been rated at 10.00/10 (previous run: 7.25/10, +2.75)
+--------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
 
-_________________________________________________________________________________ summary _________________________________________________________________________________
+_________________________________________________________________________________________________________________________________________ summary __________________________________________________________________________________________________________________________________________
   py37: commands succeeded
-  isort: commands succeeded                                                                                                                                                
-  pylint: commands succeeded                                                                                                                                               
-  congratulations :)                                                                                                                                                       
+  isort: commands succeeded
+  pylint: commands succeeded
+  congratulations :)
+
+
 ```
 <!-- markdownlint-restore -->
 
-运行 `tox` 进行自动化测试，可以看到自动执行了 `py37` 的测试，
+可以看到自动执行了 `py37` 的测试，
 [isort](https://pycqa.github.io/isort/) 的包导入检查，
 [pylint](https://www.pylint.org/) 的 Python 语法规范检查。
 
