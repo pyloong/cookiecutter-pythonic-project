@@ -15,21 +15,25 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-20.04]
-        python: [3.7, 3.8, 3.9]
+        python: ["3.7", "3.8", "3.9", "3.10"]
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+
       - name: Set up Python ${{ matrix.python }} on ${{ matrix.os }}
         uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python }}
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install tox
-      - name: test
+
+      - name: Test with tox
         run: |
           tox -e py
   linting:
@@ -39,7 +43,9 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+
       - uses: actions/setup-python@v2
+
       - run: pip install tox
       - run: |
           tox -e isort

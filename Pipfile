@@ -15,3 +15,5 @@ pytest-cookies = "*"
 tox = "*"
 mkdocs = "*"
 mkdocs-material = "*"
+typing-extensions = {markers = "python_version <= '3.9' and python_version not in '3.0, 3.1, 3.2, 3.3'", version = "*"}
+pytest-xdist = {extras = ["psutil"], version = "*"}

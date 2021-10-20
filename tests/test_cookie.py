@@ -1,6 +1,7 @@
 """Test generated project"""
 import pytest
 import sh
+from pytest_cookies.plugin import Cookies
 
 from tests.conftest import current_python_version
 
@@ -14,11 +15,12 @@ from tests.conftest import current_python_version
         {'python_version': current_python_version, 'init_skeleton': 'y'},
     ],
 )
-def test_generated_project_tox_cmd(cookies, context_override):
+def test_generated_project_tox_cmd(cookies: Cookies, context_override):
     """Generated project should pass tox."""
     result = cookies.bake(extra_context=context_override)
-
+    cwd = str(result.project_path)
     try:
-        sh.tox(_cwd=str(result.project_path))  # pylint: disable=no-member
+        sh.pipenv.install(_cwd=cwd)  # pylint: disable=no-member
+        sh.tox(_cwd=cwd)  # pylint: disable=no-member
     except sh.ErrorReturnCode as ex:
         pytest.fail(ex.stdout.decode())

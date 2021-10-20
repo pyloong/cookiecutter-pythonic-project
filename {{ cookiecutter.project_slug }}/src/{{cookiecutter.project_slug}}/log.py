@@ -34,10 +34,10 @@ def init_log() -> None:
         "disable_existing_loggers": False,
         "formatters": {
             'verbose': {
-                'format': '%(asctime)s %(levelname)s %(name)s %(process)d %(thread)d %(message)s'
+                'format': '%(asctime)s %(levelname)s %(name)s %(process)d %(thread)d %(message)s',
             },
             'simple': {
-                'format': '%(asctime)s %(levelname)s %(message)s'
+                'format': '%(asctime)s %(levelname)s %(name)s %(message)s',
             },
         },
         "handlers": {

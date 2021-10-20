@@ -1,11 +1,13 @@
 """Test"""
+from __future__ import annotations
+
 import os
 import re
 from pathlib import Path
 
 import pytest
 from binaryornot.check import is_binary
-from pytest_cookies.plugin import Result
+from pytest_cookies.plugin import Cookies, Result
 
 cookiecutter_variable_pattern = re.compile(r'{{(\s?cookiecutter)[.](.*?)}}')
 
@@ -28,26 +30,26 @@ def _fixture_id(ctx):
     return '-'.join(f'{key}:{value}' for key, value in ctx.items())
 
 
-def build_files_list(root_dir):
+def build_files_list(root_dir: Path):
     """Build a list containing absolute paths to the generated files."""
     return [
-        os.path.join(dir_path, file_path)
+        Path(dir_path) / file_path
         for dir_path, sub_dirs, files in os.walk(root_dir)
         for file_path in files
     ]
 
 
-def check_paths(paths):
+def check_paths(paths: list[Path]):
     """Method to check all paths have correct substitutions."""
     # Assert that no match is found in any of the files
     for path in paths:
-        if is_binary(path):
+        if is_binary(str(path)):
             continue
-
-        for line in open(path, 'r'):
-            match = cookiecutter_variable_pattern.search(line)
-            msg = 'cookiecutter variable not replaced in {}'
-            assert match is None, msg.format(path)
+        with open(path, 'r', encoding='utf-8') as file:
+            for line in file:
+                match = cookiecutter_variable_pattern.search(line)
+                msg = 'cookiecutter variable not replaced in {}'
+                assert match is None, msg.format(path)
 
 
 def assert_bake_ok(result: Result):
@@ -58,13 +60,13 @@ def assert_bake_ok(result: Result):
 
 
 @pytest.mark.parametrize('context_override', SUPPORTED_COMBINATIONS, ids=_fixture_id)
-def test_project_generation(cookies, context_override):
+def test_project_generation(cookies: Cookies, context_override):
     """Test that project is generated and fully rendered."""
     result = cookies.bake(extra_context={**context_override})
 
     assert_bake_ok(result)
 
-    paths = build_files_list(str(result.project_path))
+    paths = build_files_list(result.project_path)
     assert paths
     check_paths(paths)
 
@@ -80,7 +82,7 @@ def test_project_generation(cookies, context_override):
         ('  My Project ', 'my_project'),
     ]
 )
-def test_check_project_slug(cookies, project_name, expected_result):
+def test_check_project_slug(cookies: Cookies, project_name, expected_result):
     """Test check project_slug has spaces."""
     extra_context = {'use_src_layout': 'n'}
     if project_name:
@@ -93,15 +95,15 @@ def test_check_project_slug(cookies, project_name, expected_result):
 @pytest.mark.parametrize(
     ['use_dicker', 'expected_result'], [("y", [True, True]), ("n", [False, False])]
 )
-def test_docker_invokes(cookies, use_dicker, expected_result):
+def test_docker_invokes(cookies: Cookies, use_dicker, expected_result):
     """Test generated project and use docker"""
     result = cookies.bake(extra_context={'use_docker': use_dicker})
 
     assert_bake_ok(result)
 
     exist = [
-        os.path.isfile(os.path.join(str(result.project_path), 'Dockerfile')),
-        os.path.isfile(os.path.join(str(result.project_path), '.dockerignore')),
+        os.path.isfile(result.project_path / 'Dockerfile'),
+        os.path.isfile(result.project_path / '.dockerignore'),
     ]
     assert exist == expected_result
 
@@ -115,16 +117,16 @@ def test_docker_invokes(cookies, use_dicker, expected_result):
         ('n', 'aliyun', ['requirements.txt', 'aliyun']),
     ],
 )
-def test_index_server_invokes(cookies, use_pipenv, index_server, expected_result):
+def test_index_server_invokes(cookies: Cookies, use_pipenv, index_server, expected_result):
     """Test generated project"""
     result = cookies.bake(
         extra_context={'use_pipenv': use_pipenv, 'index_server': index_server}
     )
 
     assert_bake_ok(result)
-
-    assert os.path.isfile(os.path.join(str(result.project_path), expected_result[0]))
-    with open(os.path.join(str(result.project_path), expected_result[0]), "r") as file:
+    file = result.project_path / expected_result[0]
+    assert os.path.isfile(file)
+    with open(file, "r", encoding='utf-8') as file:
         data = file.read()
         assert expected_result[1] in data
 
@@ -132,7 +134,7 @@ def test_index_server_invokes(cookies, use_pipenv, index_server, expected_result
 def has_keyword(filename: Path, keyword: str) -> bool:
     """Check file has keyword"""
     if filename.is_file():
-        with open(str(filename), 'r') as file:
+        with open(str(filename), 'r', encoding='utf-8') as file:
             txt = file.read()
             return keyword in txt
     return False
@@ -141,7 +143,7 @@ def has_keyword(filename: Path, keyword: str) -> bool:
 @pytest.mark.parametrize(
     ['use_src_layout', 'except_value'], [('y', True), ('n', False)]
 )
-def test_use_src_layout_invokes(cookies, use_src_layout, except_value):
+def test_use_src_layout_invokes(cookies: Cookies, use_src_layout, except_value):
     """Test layout"""
     result = cookies.bake(extra_context={'use_src_layout': use_src_layout})
 
@@ -153,13 +155,13 @@ def test_use_src_layout_invokes(cookies, use_src_layout, except_value):
 
 
 @pytest.mark.parametrize(['ci_tools', 'expect_value'], [('none', '')])
-def test_ci_tools_invokes(cookies, ci_tools, expect_value):
+def test_ci_tools_invokes(cookies: Cookies, ci_tools, expect_value):
     """Test ci tools"""
     result = cookies.bake(extra_context={'ci_tools': ci_tools})
     print(result.exception)
     assert_bake_ok(result)
 
-    assert os.path.exists(os.path.join(result.project_path, expect_value))
+    assert os.path.exists(result.project_path / expect_value)
 
 
 @pytest.mark.parametrize(
@@ -169,7 +171,7 @@ def test_ci_tools_invokes(cookies, ci_tools, expect_value):
         ('n', False)
     ]
 )
-def test_init_skeleton(cookies, init_skeleton, has_cmdline):
+def test_init_skeleton(cookies: Cookies, init_skeleton, has_cmdline):
     """Test use bootstrap"""
     result = cookies.bake(extra_context={'init_skeleton': init_skeleton})
 

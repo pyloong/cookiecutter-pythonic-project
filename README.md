@@ -3,6 +3,7 @@
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/pyloong/cookiecutter-pythonic-project/main/main?style=flat-square)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/pyloong/cookiecutter-pythonic-project?style=flat-square)
 ![License](https://img.shields.io/github/license/pyloong/cookiecutter-pythonic-project?style=flat-square)
+![support python version](https://img.shields.io/badge/python-3.7%20%7C%203.8%20%7C%203.9%20%7C%203.10-blue)
 
 一个使用 [Cookiecutter](https://github.com/cookiecutter/cookiecutter) 工具生成 Python 工程化项目的模板。
 
@@ -17,6 +18,9 @@
 - 默认使用 SRC 项目结构
 - 初始化 PEP517 规范打包配置
 - 可选初始化通用项目骨架
+
+**注意：** 项目支持 `Python >= 3.7` , 并且已经启用 `Python 3.10` 相关功能和稳定性测试。对于小于 `Python 3.9` 的 Python 版本使用时，
+建议开启新特性支持。
 
 ### 直接使用
 
