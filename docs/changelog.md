@@ -9,6 +9,7 @@ Not release
 - 特性 py39 py310 支持
 - 特性 [PEP 585](https://www.python.org/dev/peps/pep-0585/) 支持。对于版本小于 3.9 的代码增加 `from __future__ import annotations` 导入
 - 特性 增加 pytest-xdist ，并启用并行化测试。
+- 文档 更新 README 和使用文档。
 
 ### 2021-08-31
 
