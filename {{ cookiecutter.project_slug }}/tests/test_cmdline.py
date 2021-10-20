@@ -1,5 +1,7 @@
 """Test cmdline"""
-from typing import List
+{%- if cookiecutter.use_src_layout|int < 3.9 %}
+from __future__ import annotations  # PEP 585
+{%- endif %}
 
 import pytest
 from click.testing import CliRunner
@@ -20,7 +22,7 @@ from {{cookiecutter.project_slug}}.cmdline import main
 )
 def test_main(
         clicker: CliRunner,
-        invoke_args: List[str],
+        invoke_args: list[str],
         exit_code: int,
         output_keyword: str,
 ):

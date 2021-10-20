@@ -15,3 +15,4 @@ pytest-cookies = "*"
 tox = "*"
 mkdocs = "*"
 mkdocs-material = "*"
+pytest-xdist = {extras = ["psutil"], version = "*"}
