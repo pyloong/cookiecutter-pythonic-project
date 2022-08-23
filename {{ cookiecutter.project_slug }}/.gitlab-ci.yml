@@ -32,16 +32,22 @@ build:
   stage: build
   when: on_success
   script:
-    - pip install -U build twine
-    - python -m build
+    - pip install -U poetry
+    - poetry build
   artifacts:
     paths:
       - dist/*.whl
     expire_in: 3 days
 
-# You should set TWINE_USERNAME and TWINE_PASSWORD in gitlab ci/cd environment variables.
-# You must set TWINE_NON_INTERACTIVE is True in gitlab ci/cd environment variables to avoid the need to enter
-# a password because the pipeline card owner.
+# ref: https://python-poetry.org/docs/repositories/#configuring-credentials
+# You must set POETRY_PYPI_TOKEN_PYPI in gitlab ci/cd environment variables,
+# Or set POETRY_HTTP_BASIC_PYPI_USERNAME and POETRY_HTTP_BASIC_PYPI_PASSWORD env.
+# Default poetry upload to Pypi with https://upload.pypi.org/legacy/.
+
+# You can pass `POETRY_REPOSITORY_MY_REPO=https://test.pypi.org/legacy/` env,
+# and pass `POETRY_HTTP_BASIC_MY_REPO_USERNAME` and `POETRY_HTTP_BASIC_MY_REPO_PASSWORD` to auth poetry.
+# Then exec `poetry config repositories.my_repo ${POETRY_REPOSITORY_MY_REPO}` to config repo,
+# and publish by `poetry publish --build -r my_repo`.
 deploy:twine:
   stage: upload
   when: on_success
@@ -49,8 +55,7 @@ deploy:twine:
     refs:
       - tags
     variables:
-      - $TWINE_USERNAME
-      - $TWINE_PASSWORD
+      - $POETRY_PYPI_TOKEN_PYPI
   script:
-    - pip install -U twine
-    - twine upload dist/*.whl
+    - pip install -U poetry
+    - poetry publish --build

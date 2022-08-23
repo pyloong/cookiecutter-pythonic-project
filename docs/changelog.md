@@ -1,8 +1,15 @@
 # 变更记录
 
-## Next version
+## v0.4.0
 
-Not release
+### 2022-08-23
+
+- 使用 [poetry](https://python-poetry.org/) 管理虚拟环境和打包发布，弃用 pipenv 。
+- 移除索引服务器配置
+- 移除 `python 3.7` 和 `python 3.8` 支持。推荐使用 `python 3.10` 。
+- 更新相关依赖包到最新版本
+- 更新 gh action 版本
+- 更新 gitlab-ci 的发布逻辑
 
 ## V0.3.0
 

@@ -2,7 +2,7 @@ site_name: cookiecutter-pythonic-project
 
 theme:
   name: material
-  langage: zh
+  language: zh
   features:
     - search.highlight
   icon:
