@@ -1,3 +1,41 @@
+{% if cookiecutter.use_poetry|lower == 'y' -%}
+[tool.poetry]
+name = "{{ cookiecutter.project_slug }}"
+version = "{{ cookiecutter.version }}"
+description = "{{ cookiecutter.project_description }}"
+readme = "README.md"
+authors = ["{{ cookiecutter.author_name }} <{{ cookiecutter.author_email }}>"]
+license = "MIT"
+classifiers = [
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: {{ cookiecutter.python_version }}",
+]
+
+[tool.poetry.dependencies]
+python = "^{{ cookiecutter.python_version }}"
+{%- if cookiecutter.init_skeleton|lower == 'y' %}
+dynaconf = "^3.1.9"
+click = "^8.1.3"
+{%- endif %}
+
+[tool.poetry.dev-dependencies]
+pylint = "^2.14.5"
+isort = "^5.10.1"
+pytest = "^7.1.2"
+mkdocs = "^1.3.1"
+mkdocs-material = "^8.4.1"
+
+{% if cookiecutter.init_skeleton|lower  == 'y' -%}
+[tool.poetry.plugins."scripts"]
+{{ cookiecutter.project_slug }} = "{{ cookiecutter.project_slug }}.cmdline:main"
+
+{% endif -%}
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+{% else -%}
 [build-system]
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
+{% endif -%}

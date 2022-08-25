@@ -1,10 +1,3 @@
-{% with -%}
-{% set index_server = cookiecutter.index_server|lower -%}
-{% if index_server == 'aliyun' -%}
---index-url https://mirrors.aliyun.com/pypi/simple/
-{% endif -%}
-{% endwith -%}
-
 {% if cookiecutter.init_skeleton|lower == 'y' -%}
 dynaconf
 click

@@ -13,8 +13,7 @@ cookiecutter_variable_pattern = re.compile(r'{{(\s?cookiecutter)[.](.*?)}}')
 
 SUPPORTED_COMBINATIONS = [
     {'index_server': 'index_server'},
-    {'index_server': 'aliyun'},
-    {'use_pipenv': 'n'},
+    {'use_poetry': 'n'},
     {'ci_tools': 'none'},
     {'ci_tools': 'Gitlab'},
     {'ci_tools': 'Github'},
@@ -26,7 +25,7 @@ SUPPORTED_COMBINATIONS = [
 
 
 def _fixture_id(ctx):
-    """Helper to get a user friendly test name from the parametrized context."""
+    """Helper to get a friendly test name from the parametrized context."""
     return '-'.join(f'{key}:{value}' for key, value in ctx.items())
 
 
@@ -52,10 +51,23 @@ def check_paths(paths: list[Path]):
                 assert match is None, msg.format(path)
 
 
+def assert_has_file(file: Path, expect_value):
+    """assert file exist factory"""
+    assert file.exists() == expect_value
+
+
+def has_keyword(file: Path, keyword: str) -> bool:
+    """Check file has keyword"""
+    if file.is_file():
+        with open(file, 'r', encoding='utf-8') as reader:
+            txt = reader.read()
+            return keyword in txt
+    return False
+
+
 def assert_bake_ok(result: Result):
     """Check bake result is ok"""
     assert result.exit_code == 0
-    assert result.project_path.is_dir()
     assert result.project_path.is_dir()
 
 
@@ -93,6 +105,28 @@ def test_check_project_slug(cookies: Cookies, project_name, expected_result):
 
 
 @pytest.mark.parametrize(
+    'use_poetry, has_poetry_keyword, required_files',
+    [
+        ('y', True, False),
+        ('n', False, True),
+    ]
+)
+def test_use_poetry(
+        cookies: Cookies,
+        use_poetry,
+        has_poetry_keyword,
+        required_files,
+):
+    """test use poetry"""
+    result = cookies.bake(extra_context={'use_poetry': use_poetry})
+    assert_bake_ok(result)
+    assert has_keyword(result.project_path / 'pyproject.toml', 'poetry') == has_poetry_keyword
+    assert_has_file(result.project_path / 'MANIFEST.in', required_files)
+    assert_has_file(result.project_path / 'setup.cfg', required_files)
+    assert_has_file(result.project_path / 'requirements.txt', required_files)
+
+
+@pytest.mark.parametrize(
     ['use_dicker', 'expected_result'], [("y", [True, True]), ("n", [False, False])]
 )
 def test_docker_invokes(cookies: Cookies, use_dicker, expected_result):
@@ -109,38 +143,6 @@ def test_docker_invokes(cookies: Cookies, use_dicker, expected_result):
 
 
 @pytest.mark.parametrize(
-    ['use_pipenv', 'index_server', 'expected_result'],
-    [
-        ('y', 'none', ['Pipfile', 'pypi']),
-        ('n', 'none', ['requirements.txt', '']),
-        ('y', 'aliyun', ['Pipfile', 'aliyun']),
-        ('n', 'aliyun', ['requirements.txt', 'aliyun']),
-    ],
-)
-def test_index_server_invokes(cookies: Cookies, use_pipenv, index_server, expected_result):
-    """Test generated project"""
-    result = cookies.bake(
-        extra_context={'use_pipenv': use_pipenv, 'index_server': index_server}
-    )
-
-    assert_bake_ok(result)
-    file = result.project_path / expected_result[0]
-    assert os.path.isfile(file)
-    with open(file, "r", encoding='utf-8') as file:
-        data = file.read()
-        assert expected_result[1] in data
-
-
-def has_keyword(filename: Path, keyword: str) -> bool:
-    """Check file has keyword"""
-    if filename.is_file():
-        with open(str(filename), 'r', encoding='utf-8') as file:
-            txt = file.read()
-            return keyword in txt
-    return False
-
-
-@pytest.mark.parametrize(
     ['use_src_layout', 'except_value'], [('y', True), ('n', False)]
 )
 def test_use_src_layout_invokes(cookies: Cookies, use_src_layout, except_value):
@@ -151,14 +153,12 @@ def test_use_src_layout_invokes(cookies: Cookies, use_src_layout, except_value):
 
     assert (result.project_path / 'src').exists() == except_value
     assert has_keyword(result.project_path / 'tox.ini', 'src') == except_value
-    assert has_keyword(result.project_path / 'setup.cfg', 'src') == except_value
 
 
 @pytest.mark.parametrize(['ci_tools', 'expect_value'], [('none', '')])
 def test_ci_tools_invokes(cookies: Cookies, ci_tools, expect_value):
     """Test ci tools"""
     result = cookies.bake(extra_context={'ci_tools': ci_tools})
-    print(result.exception)
     assert_bake_ok(result)
 
     assert os.path.exists(result.project_path / expect_value)
@@ -183,4 +183,4 @@ def test_init_skeleton(cookies: Cookies, init_skeleton, has_cmdline):
             if file == 'cmdline.py':
                 exist_cmdline_file = True
     assert exist_cmdline_file == has_cmdline
-    assert has_keyword(Path(result.project_path, 'setup.cfg'), 'cmdline') == has_cmdline
+    assert has_keyword(Path(result.project_path, 'pyproject.toml'), 'cmdline') == has_cmdline

@@ -136,15 +136,12 @@ author_name [Author]: ming
 author_email [ming@example.com]: ming@gmail.com
 version [0.1.0]:
 Select python_version:
-1 - 3.7
-2 - 3.8
-3 - 3.9
-4 - 3.10
-Choose from 1, 2, 3, 4 [1]:
+1 - 3.10
+2 - 3.9
+Choose from 1, 2 [1]:
 ```
 
-选择使用的 Python 版本。默认是 `Python 3.7` 。选择的版本号会出现在打包描述文件 `setup.cfg` 和依赖管理文件 `Pipfile` 文件中。
-前者定义使用项目所需要的 Python 版本，后者定义开发时创建的虚拟环境所对应的 Python 版本。
+选择使用的 Python 版本。建议使用 `Python 3.10` 。
 
 ### 使用 SRC 目录结构(use_src_layout)
 
@@ -158,12 +155,10 @@ author_name [Author]: ming
 author_email [ming@example.com]: ming@gmail.com
 version [0.1.0]:
 Select python_version:
-1 - 3.7
-2 - 3.8
-3 - 3.9
-4 - 3.10
-Choose from 1, 2, 3, 4 [1]:
-use_src_layout [y]:
+1 - 3.10
+2 - 3.9
+Choose from 1, 2 [1]: 
+use_src_layout [y]: 
 ```
 
 选择是否使用 SRC 目录结构。
@@ -186,52 +181,18 @@ author_name [Author]: ming
 author_email [ming@example.com]: ming@gmail.com
 version [0.1.0]:
 Select python_version:
-1 - 3.7
-2 - 3.8
-3 - 3.9
-4 - 3.10
-Choose from 1, 2, 3, 4 [1]:
+1 - 3.10
+2 - 3.9
+Choose from 1, 2 [1]: 
 use_src_layout [y]: 
-use_pipenv [y]: 
+use_poetry [y]: 
 ```
 
-选择是否使用 [Pipenv](https://pipenv.pypa.io/en/latest/) 作为虚拟环境管理工具。
-
-使用 Pipenv 的话，会在项目目录自动生成一个 Pipfile 文件，包含了生成的项目所需要的依赖，其中有测试相关的依赖。
+选择是否使用 [Poetry](https://python-poetry.org/) 作为虚拟环境管理工具。默认情况下是推荐使用的，
+[Poetry](https://python-poetry.org/) 是虚拟环境管理工具中的新起之秀，同时包含了打包和发布功能，使用
+`pyprojrct.toml` 管理元数据，减少大量配置文件。
 
 如果不使用，则直接生成一个 `requirements.txt` 文件，也会包含所需要的依赖。
-
-注意：如果使用 Pipenv ，需要先安装 Pipenv 。关于 Pipenv 的更多使用技巧，请阅读文档 [Pipenv](https://pipenv.pypa.io/en/latest/) 。
-
-### Python 索引服务器(index_server)
-
-```text
-❯ cookiecutter https://github.com/pyloong/cookiecutter-pythonic-project
-You've downloaded /home/kevin/.cookiecutters/cookiecutter-pythonic-project before. Is it okay to delete and re-download it? [yes]: 
-project_name [My Project]: Hello World
-project_slug [hello_world]: 
-project_description [My Awesome Project!]: This is my first python package, i love it.
-author_name [Author]: ming
-author_email [ming@example.com]: ming@gmail.com
-version [0.1.0]: 0.1.0    
-Select python_version:
-1 - 3.7
-2 - 3.8
-3 - 3.9
-4 - 3.10
-Choose from 1, 2, 3, 4 [1]:
-use_src_layout [y]: 
-use_pipenv [y]: 
-Select index_server:
-1 - none
-2 - aliyun
-Choose from 1, 2 [1]:
-```
-
-选择使用的 Python 包索引服务器，默认不选，是使用 [https://pypi.org/](https://pypi.org/) 。提供了一个国内的加速地址
-[aliyun](https://mirrors.aliyun.com/pypi/simple/) 。当然你也可以在生成之后修改为自己的内网私服。
-
-如果上一步你选择了使用 Pipenv ，则需要修改 `Pipfile` 文件，如果不使用 Pipenv ，则修改 `requirements.txt` 文件即可。
 
 ### 使用 Docker(use_docker)
 
@@ -245,17 +206,11 @@ author_name [Author]: ming
 author_email [ming@example.com]: ming@gmail.com
 version [0.1.0]: 0.1.0    
 Select python_version:
-1 - 3.7
-2 - 3.8
-3 - 3.9
-4 - 3.10
-Choose from 1, 2, 3, 4 [1]:
+1 - 3.10
+2 - 3.9
+Choose from 1, 2 [1]: 
 use_src_layout [y]: 
-use_pipenv [y]: 
-Select index_server:
-1 - none
-2 - aliyun
-Choose from 1, 2 [1]:
+use_poetry [y]: 
 use_docker [n]: 
 ```
 
@@ -275,17 +230,11 @@ author_name [Author]: ming
 author_email [ming@example.com]: ming@gmail.com
 version [0.1.0]: 0.1.0    
 Select python_version:
-1 - 3.7
-2 - 3.8
-3 - 3.9
-4 - 3.10
-Choose from 1, 2, 3, 4 [1]:
+1 - 3.10
+2 - 3.9
+Choose from 1, 2 [1]: 
 use_src_layout [y]: 
-use_pipenv [y]: 
-Select index_server:
-1 - none
-2 - aliyun
-Choose from 1, 2 [1]:
+use_poetry [y]: 
 use_docker [n]: 
 Select ci_tools:
 1 - none
@@ -308,24 +257,18 @@ author_name [Author]: ming
 author_email [ming@example.com]: ming@gmail.com
 version [0.1.0]: 0.1.0    
 Select python_version:
-1 - 3.7
-2 - 3.8
-3 - 3.9
-4 - 3.10
-Choose from 1, 2, 3, 4 [1]:
+1 - 3.10
+2 - 3.9
+Choose from 1, 2 [1]: 
 use_src_layout [y]: 
-use_pipenv [y]: 
-Select index_server:
-1 - none
-2 - aliyun
-Choose from 1, 2 [1]:
+use_poetry [y]: 
 use_docker [n]: 
 Select ci_tools:
 1 - none
 2 - Gitlab
 3 - Github
-Choose from 1, 2, 3 [1]:
-init_skeleton [n]:
+Choose from 1, 2, 3 [1]: 
+init_skeleton [n]: 
 ```
 
 选择是否初始化项目骨架。如果选择初始化，则会在生成的项目中增加配置系统，初始化日志配置，提供一个通用的命令行入口，并将
@@ -337,32 +280,26 @@ init_skeleton [n]:
 
 ```text
 hello_world
-├── docs
-│         └── development.md
 ├── LICENSE
-├── MANIFEST.in
-├── Pipfile
-├── pyproject.toml
 ├── README.md
-├── setup.cfg
+├── docs
+│   └── development.md
+├── pyproject.toml
 ├── src
-│         └── hello_world
-│             └── __init__.py
+│   └── hello_world
+│       └── __init__.py
 ├── tests
-│         ├── conftest.py
-│         ├── __init__.py
-│         └── tests.py
+│   ├── __init__.py
+│   ├── conftest.py
+│   └── test_version.py
 └── tox.ini
 ```
 
 在项目根目录，包含了一些描述性的文件：
 
 - `LICENSE` ： 项目的许可证
-- `MANIFEST.in` ：描述项目打包是要包含的目录和文件
-- `Pipfile` ：Pipenv 所使用的依赖描述文件
-- `pyproject.toml` ：符合 [PEP-517](https://www.python.org/dev/peps/pep-0517/) 规范的项目打包描述文件
+- `pyproject.toml` ：由 [Poetry](https://python-poetry.org/) 生成的带有 [Poetry](https://python-poetry.org/) 配置的项目描述文件。
 - `README.md` ：项目自述文件
-- `setup.cfg` ：项目打包是使用的后端工具 setuptools 的配置文件。
 - `tox.ini` ：自动化测试工具 [Tox](https://tox.readthedocs.io/en/latest/) 的配置文件。
 
 还有一些目录：
@@ -375,121 +312,175 @@ hello_world
 
 项目模板生成后，默认会在的当前目录生成一个可用的 Python 项目。
 
-Python 项目开发时，强烈建议使用虚拟环境管理 Python 项目的依赖。在前面生成项目模板是，会默认使用 [pipenv](https://github.com/pypa/pipenv)
-作为虚拟环境管理工具。当然你可以不使用 pipenv ，选择更常见的 [Virtualenv](https://github.com/pypa/virtualenv) 。
+Python 项目开发时，强烈建议使用虚拟环境管理 Python 项目的依赖。在前面生成项目模板是，会默认使用 [Poetry](https://python-poetry.org/)
+作为虚拟环境管理工具。当然你可以不使用 [Poetry](https://python-poetry.org/) ，选择更常见的 [Virtualenv](https://github.com/pypa/virtualenv) 。
 
-后续步骤都假设你已经了解 [pipenv](https://github.com/pypa/pipenv) 并使用 [pipenv](https://github.com/pypa/pipenv) 。
+后续步骤都假设你已经了解 [Poetry](https://python-poetry.org/) 并使用 [Poetry](https://python-poetry.org/) 。
 
-如果没有安装 [pipenv](https://github.com/pypa/pipenv) ，可以使用 pip 命令安装。为了方便使用，推荐在系统环境下或者当前用户环境下安装 。
+如果没有安装 [Poetry](https://python-poetry.org/) ，可以使用 pip 命令安装。为了方便使用，推荐在系统环境下或者当前用户环境下安装 。
 
 ```bash
 ## 升级 pip
 pip install -U pip
-pip install -U pipenv
+pip install -U poetry
 
 ## 进入项目目录
 cd  hello_world
 
-## 创建虚拟环境，并指定 pipenv 自动安装开发环境依赖
-pipenv install -d
+## 创建虚拟环境，并安装依赖
+poetry install
 
 ## 进入虚拟环境
-pipenv shell
+poetry shell
 ```
 
 为了减少开发过程中遇到模板本身错误导致开发异常的情况，在开发前首先运行一遍自动化测试，直接执行 `tox` 命令。
 
 <!-- markdownlint-disable MD013 MD033-->
 ```text
-❯ pipenv install -d
-Creating a virtualenv for this project...
-Pipfile: /tmp/test/hello_world/Pipfile
-Using /usr/bin/python3.7m (3.7.3) to create virtualenv...
-⠹ Creating virtual environment...created virtual environment CPython3.7.3.final.0-64 in 115ms
-  creator CPython3Posix(dest=/home/foo/.virtualenvs/hello_world-jr7PFJwh, clear=False, no_vcs_ignore=False, global=False)
-  seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/home/kevin/.local/share/virtualenv)
-    added seed packages: pip==21.2.4, setuptools==58.1.0, wheel==0.37.0
-  activators BashActivator,CShellActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
+.package create: /private/tmp/test/hello_world/.tox/.package
+.package installdeps: poetry-core>=1.0.0
+py310 create: /private/tmp/test/hello_world/.tox/py310
+py310 installdeps: poetry
+py310 inst: /private/tmp/test/hello_world/.tox/.tmp/package/1/hello_world-0.1.0.tar.gz
+py310 installed: CacheControl==0.12.11,cachy==0.3.0,certifi==2022.6.15,charset-normalizer==2.1.1,cleo==0.8.1,clikit==0.6.2,crashtest==0.3.1,distlib==0.3.5,filelock==3.8.0,hello-world @ file:///private/tmp/test/hello_world/.tox/.tmp/package/1/hello_world-0.1.0.tar.gz,html5lib==1.1,idna==3.3,keyring==23.8.2,lockfile==0.12.2,msgpack==1.0.4,packaging==20.9,pastel==0.2.1,pexpect==4.8.0,pkginfo==1.8.3,platformdirs==2.5.2,poetry==1.1.15,poetry-core==1.0.8,ptyprocess==0.7.0,pylev==1.4.0,pyparsing==3.0.9,requests==2.28.1,requests-toolbelt==0.9.1,shellingham==1.5.0,six==1.16.0,tomlkit==0.11.4,urllib3==1.26.12,virtualenv==20.16.3,webencodings==0.5.1
+py310 run-test-pre: PYTHONHASHSEED='2454675361'
+py310 run-test: commands[0] | poetry install -v
+Using virtualenv: /private/tmp/test/hello_world/.tox/py310
+Updating dependencies
+Resolving dependencies... (98.0s)
 
-✔ Successfully created virtual environment!
-Virtualenv location: /home/foo/.virtualenvs/hello_world-jr7PFJwh
-Pipfile.lock not found, creating...
-Locking [dev-packages] dependencies...
-Building requirements...
-Resolving dependencies...
-✔ Success!
-Locking [packages] dependencies...
-Updated Pipfile.lock (25be9b)!
-Installing dependencies from Pipfile.lock (25be9b)...
-      ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 28/28 — 00:00:09
-To activate this project's virtualenv, run pipenv shell.
-Alternatively, run a command inside the virtualenv with pipenv run.
-❯ pipenv shell
-Launching subshell in virtual environment...
-❯  . /home/foo/.virtualenvs/hello_world-jr7PFJwh/bin/activate
-❯ tox
-.package create: /tmp/test/hello_world/.tox/.package
-.package installdeps: setuptools, wheel
-py37 create: /tmp/test/hello_world/.tox/py37
-py37 installdeps: pipenv
-py37 inst: /tmp/test/hello_world/.tox/.tmp/package/1/hello_world-0.1.0.tar.gz
-py37 installed: backports.entry-points-selectable==1.1.0,certifi==2021.10.8,distlib==0.3.3,filelock==3.3.1,hello-world @ file:///tmp/test/hello_world/.tox/.tmp/package/1/hello_world-0.1.0.tar.gz,importlib-metadata==4.8.1,pipenv==2021.5.29,platformdirs==2.4.0,six==1.16.0,typing-extensions==3.10.0.2,virtualenv==20.8.1,virtualenv-clone==0.5.7,zipp==3.6.0
-py37 run-test-pre: PYTHONHASHSEED='2139583814'
-py37 run-test: commands[0] | pipenv sync -d
-Courtesy Notice: Pipenv found itself running within a virtual environment, so it will automatically use that environment, instead of creating its own for any project. You can set PIPENV_IGNORE_VIRTUALENVS=1 to force pipenv to ignore that environment and create its own instead. You can set PIPENV_VERBOSITY=-1 to suppress this warning.
-Installing dependencies from Pipfile.lock (25be9b)...
-  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 19/19 — 00:00:05
-To activate this project's virtualenv, run pipenv shell.
-Alternatively, run a command inside the virtualenv with pipenv run.
-All dependencies are now up-to-date!
-py37 run-test: commands[1] | pytest
-================================================================================================ test session starts ================================================================================================
-platform linux -- Python 3.7.3, pytest-6.2.5, py-1.10.0, pluggy-1.0.0
-cachedir: .tox/py37/.pytest_cache
-rootdir: /tmp/test/hello_world, configfile: setup.cfg, testpaths: tests
-plugins: cov-3.0.0
-collected 1 item
+Writing lock file
 
-tests/tests.py .                                                                                                                                                                                              [100%]
+Finding the necessary packages for the current system
 
-================================================================================================= 1 passed in 0.01s =================================================================================================
-isort create: /tmp/test/hello_world/.tox/isort
+Package operations: 30 installs, 1 update, 0 removals, 4 skipped
+
+  • Installing six (1.16.0): Skipped for the following reason: Already installed
+  • Installing markupsafe (2.1.1)
+  • Installing pyparsing (3.0.9): Skipped for the following reason: Already installed
+  • Installing python-dateutil (2.8.2)
+  • Installing pyyaml (6.0)
+  • Installing zipp (3.8.1)
+  • Installing click (8.1.3)
+  • Installing ghp-import (2.1.0)
+  • Installing importlib-metadata (4.12.0)
+  • Installing jinja2 (3.1.2)
+  • Installing lazy-object-proxy (1.7.1)
+  • Installing markdown (3.3.7)
+  • Installing mergedeep (1.3.4)
+  • Updating packaging (20.9 -> 21.3)
+  • Installing pyyaml-env-tag (0.1)
+  • Installing watchdog (2.1.9)
+  • Installing wrapt (1.14.1)
+  • Installing astroid (2.11.7)
+  • Installing attrs (22.1.0)
+  • Installing dill (0.3.5.1)
+  • Installing iniconfig (1.1.1)
+  • Installing isort (5.10.1)
+  • Installing mccabe (0.7.0)
+  • Installing mkdocs (1.3.1)
+  • Installing mkdocs-material-extensions (1.0.3)
+  • Installing platformdirs (2.5.2): Skipped for the following reason: Already installed
+  • Installing pluggy (1.0.0)
+  • Installing py (1.11.0)
+  • Installing pygments (2.13.0)
+  • Installing pymdown-extensions (9.5)
+  • Installing tomli (2.0.1)
+  • Installing tomlkit (0.11.4): Skipped for the following reason: Already installed
+  • Installing mkdocs-material (8.4.1)
+  • Installing pylint (2.14.5)
+  • Installing pytest (7.1.2)
+
+Installing the current project: hello_world (0.1.0)
+py310 run-test: commands[1] | poetry run pytest tests
+============================================================================================================= test session starts ==============================================================================================================
+platform darwin -- Python 3.10.6, pytest-7.1.2, pluggy-1.0.0
+cachedir: .tox/py310/.pytest_cache
+rootdir: /private/tmp/test/hello_world
+collected 1 item                                                                                                                                                                                                                               
+
+tests/test_version.py .                                                                                                                                                                                                                  [100%]
+
+============================================================================================================== 1 passed in 0.02s ===============================================================================================================
+isort create: /private/tmp/test/hello_world/.tox/isort
 isort installdeps: isort
-isort inst: /tmp/test/hello_world/.tox/.tmp/package/1/hello_world-0.1.0.tar.gz
-isort installed: hello-world @ file:///tmp/test/hello_world/.tox/.tmp/package/1/hello_world-0.1.0.tar.gz,isort==5.9.3
-isort run-test-pre: PYTHONHASHSEED='2139583814'
+isort inst: /private/tmp/test/hello_world/.tox/.tmp/package/1/hello_world-0.1.0.tar.gz
+isort installed: hello-world @ file:///private/tmp/test/hello_world/.tox/.tmp/package/1/hello_world-0.1.0.tar.gz,isort==5.10.1
+isort run-test-pre: PYTHONHASHSEED='2454675361'
 isort run-test: commands[0] | isort . --check-only --diff
 Skipped 1 files
-pylint create: /tmp/test/hello_world/.tox/pylint
-pylint installdeps: pipenv
-pylint inst: /tmp/test/hello_world/.tox/.tmp/package/1/hello_world-0.1.0.tar.gz
-pylint installed: backports.entry-points-selectable==1.1.0,certifi==2021.10.8,distlib==0.3.3,filelock==3.3.1,hello-world @ file:///tmp/test/hello_world/.tox/.tmp/package/1/hello_world-0.1.0.tar.gz,importlib-metadata==4.8.1,pipenv==2021.5.29,platformdirs==2.4.0,six==1.16.0,typing-extensions==3.10.0.2,virtualenv==20.8.1,virtualenv-clone==0.5.7,zipp==3.6.0
-pylint run-test-pre: PYTHONHASHSEED='2139583814'
-pylint run-test: commands[0] | pipenv sync -d
-Courtesy Notice: Pipenv found itself running within a virtual environment, so it will automatically use that environment, instead of creating its own for any project. You can set PIPENV_IGNORE_VIRTUALENVS=1 to force pipenv to ignore that environment and create its own instead. You can set PIPENV_VERBOSITY=-1 to suppress this warning.
-Installing dependencies from Pipfile.lock (25be9b)...
-  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 19/19 — 00:00:05
-To activate this project's virtualenv, run pipenv shell.
-Alternatively, run a command inside the virtualenv with pipenv run.
-All dependencies are now up-to-date!
-pylint run-test: commands[1] | pylint tests src
+pylint create: /private/tmp/test/hello_world/.tox/pylint
+pylint installdeps: poetry
+pylint inst: /private/tmp/test/hello_world/.tox/.tmp/package/1/hello_world-0.1.0.tar.gz
+pylint installed: CacheControl==0.12.11,cachy==0.3.0,certifi==2022.6.15,charset-normalizer==2.1.1,cleo==0.8.1,clikit==0.6.2,crashtest==0.3.1,distlib==0.3.5,filelock==3.8.0,hello-world @ file:///private/tmp/test/hello_world/.tox/.tmp/package/1/hello_world-0.1.0.tar.gz,html5lib==1.1,idna==3.3,keyring==23.8.2,lockfile==0.12.2,msgpack==1.0.4,packaging==20.9,pastel==0.2.1,pexpect==4.8.0,pkginfo==1.8.3,platformdirs==2.5.2,poetry==1.1.15,poetry-core==1.0.8,ptyprocess==0.7.0,pylev==1.4.0,pyparsing==3.0.9,requests==2.28.1,requests-toolbelt==0.9.1,shellingham==1.5.0,six==1.16.0,tomlkit==0.11.4,urllib3==1.26.12,virtualenv==20.16.3,webencodings==0.5.1
+pylint run-test-pre: PYTHONHASHSEED='2454675361'
+pylint run-test: commands[0] | poetry install -v
+Using virtualenv: /private/tmp/test/hello_world/.tox/pylint
+Installing dependencies from lock file
+
+Finding the necessary packages for the current system
+
+Package operations: 30 installs, 1 update, 0 removals, 6 skipped
+
+  • Removing atomicwrites (1.4.1): Skipped for the following reason: Not currently installed
+  • Removing colorama (0.4.5): Skipped for the following reason: Not currently installed
+  • Installing six (1.16.0): Skipped for the following reason: Already installed
+  • Installing markupsafe (2.1.1)
+  • Installing pyparsing (3.0.9): Skipped for the following reason: Already installed
+  • Installing python-dateutil (2.8.2)
+  • Installing pyyaml (6.0)
+  • Installing zipp (3.8.1)
+  • Installing click (8.1.3)
+  • Installing ghp-import (2.1.0)
+  • Installing importlib-metadata (4.12.0)
+  • Installing jinja2 (3.1.2)
+  • Installing lazy-object-proxy (1.7.1)
+  • Installing markdown (3.3.7)
+  • Installing mergedeep (1.3.4)
+  • Updating packaging (20.9 -> 21.3)
+  • Installing pyyaml-env-tag (0.1)
+  • Installing watchdog (2.1.9)
+  • Installing wrapt (1.14.1)
+  • Installing astroid (2.11.7)
+  • Installing attrs (22.1.0)
+  • Installing dill (0.3.5.1)
+  • Installing iniconfig (1.1.1)
+  • Installing isort (5.10.1)
+  • Installing mccabe (0.7.0)
+  • Installing mkdocs (1.3.1)
+  • Installing mkdocs-material-extensions (1.0.3)
+  • Installing platformdirs (2.5.2): Skipped for the following reason: Already installed
+  • Installing pluggy (1.0.0)
+  • Installing py (1.11.0)
+  • Installing pygments (2.13.0)
+  • Installing pymdown-extensions (9.5)
+  • Installing tomli (2.0.1)
+  • Installing tomlkit (0.11.4): Skipped for the following reason: Already installed
+  • Installing mkdocs-material (8.4.1)
+  • Installing pylint (2.14.5)
+  • Installing pytest (7.1.2)
+
+Installing the current project: hello_world (0.1.0)
+pylint run-test: commands[1] | poetry run pylint tests src
 
 --------------------------------------------------------------------
 Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
 
-_________________________________________________________________________________________________________________________________________ summary __________________________________________________________________________________________________________________________________________
-  py37: commands succeeded
+___________________________________________________________________________________________________________________ summary ____________________________________________________________________________________________________________________
+  py310: commands succeeded
   isort: commands succeeded
   pylint: commands succeeded
   congratulations :)
 
-
 ```
 <!-- markdownlint-restore -->
 
-可以看到自动执行了 `py37` 的测试，
-[isort](https://pycqa.github.io/isort/) 的包导入检查，
-[pylint](https://www.pylint.org/) 的 Python 语法规范检查。
+可以看到 tox 做了如下事情：
+
+- 执行了 `py310` 的测试，
+- [isort](https://pycqa.github.io/isort/) 的包导入检查，
+- [pylint](https://www.pylint.org/) 的 Python 语法规范检查。
 
 当所有检查都正常时， Tox 的自动化逻辑才会正常通过，否则会报出异常，此时你需要根据提示调整代码，并再次运行，直到全部通过。
 

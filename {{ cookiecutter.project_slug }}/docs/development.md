@@ -4,7 +4,7 @@
 
 - git init
 - git config
-- pipenv install
+- poetry install
 - git commit
 
 ## Develop
@@ -38,15 +38,15 @@ git tag -a v0.1.0
 Build this tag distribution package.
 
 ```shell script
-python setup.py bdist_wheel
+poetry build
 ```
 
 ### Upload index server
 
-Upload to pypi server, or pass `--repository-url https://pypi.org/simple` to specify index server.
+Upload to pypi server, or pass `--repository https://pypi.org/simple` to specify index server.
 
 ```shell script
-twine upload ./dist/*.whl
+poetry publish
 ```
 
 ## Develop guide
@@ -55,12 +55,12 @@ twine upload ./dist/*.whl
 
 Open project use Pycharm.
 
-**Module can not import in src**
+#### Module can not import in src
 
 Check menu bar, click `File` --> `Settings` --> `Project Settings` --> `Project Structure` .
 Mark `src` and `tests` directory as sources.
 
-**Enable pytest**
+#### Enable pytest
 
 Click `File` --> `Settings` --> `Tools` --> `Python Integrated Tools` --> `Testing` --> `Default runner`, then select
 `pytest`.

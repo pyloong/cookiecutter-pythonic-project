@@ -6,17 +6,11 @@
     "author_email": "{{ cookiecutter.author_name.lower()|trim()|replace(' ', '-') }}@example.com",
     "version": "0.1.0",
     "python_version": [
-        "3.7",
-        "3.8",
-        "3.9",
-        "3.10"
+        "3.10",
+        "3.9"
     ],
     "use_src_layout": "y",
-    "use_pipenv": "y",
-    "index_server": [
-        "none",
-        "aliyun"
-    ],
+    "use_poetry": "y",
     "use_docker": "n",
     "ci_tools": [
         "none",
