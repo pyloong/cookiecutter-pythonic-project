@@ -6,7 +6,7 @@ authors = ["huagang"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = ">=3.9,<3.11"
 cookiecutter = "^2.1.1"
 sh = "^1.14.3"
 
