@@ -85,6 +85,8 @@ my_project
 ├── docs
 │   └── development.md
 ├── pyproject.toml
+├── .editorconfig
+├── .pre-commit-config.yaml
 ├── src
 │   └── my_project
 │       └── __init__.py
@@ -133,6 +135,13 @@ tox
 
 ## 安装项目开发时需要的依赖。安装完成后，会自动更新 poetry.lock 文件，锁定当前版本。
 poetry add aiohttp
+
+## pre-commit预提交，是git hooks中的一个钩子，由 git commit 命令调用，可以通过 --no-verify 参数绕过调用 pre-commit 。
+## 要使用pre-commit钩子，请先安装pre-commit库
+pip install pre-commit
+## 命令行安装，卸载为 `pre-commit uninstall`
+pre-commit install
+## git commit -m '修改内容' 会触发预提交钩子指令，完成校验逻辑
 ```
 
 更多使用细节请查看 [使用说明](./docs/usage.md) 。
