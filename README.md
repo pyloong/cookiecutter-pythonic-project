@@ -18,7 +18,7 @@
 - 初始化 PEP517 规范打包配置，默认使用 [poetry](https://python-poetry.org/) 打包。
 - 可选初始化通用项目骨架
 
-**注意：** 项目支持 `Python >= 3.9` , 并且已经启用 `Python 3.10` 相关功能和稳定性测试。
+**注意：** 项目支持 `Python >= 3.10` , 并且已经启用 `Python 3.11` 相关功能和稳定性测试。
 
 ### 直接使用
 
@@ -48,9 +48,9 @@ author_name [Author]:
 author_email [author@example.com]: 
 version [0.1.0]: 
 Select python_version:
-1 - 3.10
-2 - 3.9
-Choose from 1, 2 [1]: 
+1 - 3.11
+2 - 3.10
+Choose from 1, 2 [1]: 2
 use_src_layout [y]: 
 use_poetry [y]: 
 use_docker [n]: 
