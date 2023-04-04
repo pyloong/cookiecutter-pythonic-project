@@ -3,7 +3,7 @@
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/pyloong/cookiecutter-pythonic-project/main.yml?style=flat-square)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/pyloong/cookiecutter-pythonic-project?style=flat-square)
 ![License](https://img.shields.io/github/license/pyloong/cookiecutter-pythonic-project?style=flat-square)
-![support python version](https://img.shields.io/badge/python-3.9%20%7C%203.10-blue)
+![support python version](https://img.shields.io/badge/python-3.10%20%7C%203.11-blue)
 
 一个使用 [Cookiecutter](https://github.com/cookiecutter/cookiecutter) 工具生成 Python 工程化项目的模板。
 
