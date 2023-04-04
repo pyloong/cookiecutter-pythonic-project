@@ -6,8 +6,8 @@
     "author_email": "{{ cookiecutter.author_name.lower()|trim()|replace(' ', '-') }}@example.com",
     "version": "0.1.0",
     "python_version": [
-        "3.10",
-        "3.9"
+        "3.11",
+        "3.10"
     ],
     "use_src_layout": "y",
     "use_poetry": "y",

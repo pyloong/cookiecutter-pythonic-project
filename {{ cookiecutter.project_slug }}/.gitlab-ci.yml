@@ -48,7 +48,7 @@ build:
 # and pass `POETRY_HTTP_BASIC_MY_REPO_USERNAME` and `POETRY_HTTP_BASIC_MY_REPO_PASSWORD` to auth poetry.
 # Then exec `poetry config repositories.my_repo ${POETRY_REPOSITORY_MY_REPO}` to config repo,
 # and publish by `poetry publish --build -r my_repo`.
-deploy:twine:
+deploy:poetry:
   stage: upload
   when: on_success
   only:

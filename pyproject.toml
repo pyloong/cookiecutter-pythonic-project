@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "cookiecutter-pythonic-project"
-version = "0.4.0"
+version = "0.5.0"
 description = "cookiecutter for pythonic project"
 authors = ["huagang"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = ">=3.9,<3.11"
+python = ">=3.10,<3.12"
 cookiecutter = "^2.1.1"
 sh = "^1.14.3"
 
