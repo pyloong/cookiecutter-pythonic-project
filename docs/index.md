@@ -1,13 +1,13 @@
 # cookiecutter-pythonic-project
 
-![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/pyloong/cookiecutter-pythonic-project/main/main?style=flat-square)
+![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/pyloong/cookiecutter-pythonic-project/main.yml?style=flat-square)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/pyloong/cookiecutter-pythonic-project?style=flat-square)
 ![License](https://img.shields.io/github/license/pyloong/cookiecutter-pythonic-project?style=flat-square)
-![support python version](https://img.shields.io/badge/python-3.9%20%7C%203.10-blue)
+![support python version](https://img.shields.io/badge/python-3.10%20%7C%203.11-blue)
 
 一个使用 [Cookiecutter](https://github.com/cookiecutter/cookiecutter) 工具生成 Python 工程化项目的模板。
 
-- 文档: [https://pyloong.github.io/cookiecutter-pythonic-project/](https://pyloong.github.io/cookiecutter-pythonic-project)
+- 文档: [https://pyloong.github.io/cookiecutter-pythonic-project/](https://pyloong.github.io/cookiecutter-pythonic-project/)
 - GitHub: [https://github.com/pyloong/cookiecutter-pythonic-project](https://github.com/pyloong/cookiecutter-pythonic-project)
 
 ## 特性
@@ -18,7 +18,7 @@
 - 初始化 PEP517 规范打包配置，默认使用 [poetry](https://python-poetry.org/) 打包。
 - 可选初始化通用项目骨架
 
-**注意：** 项目支持 `Python >= 3.9` , 并且已经启用 `Python 3.10` 相关功能和稳定性测试。
+**注意：** 项目支持 `Python >= 3.10` , 并且已经启用 `Python 3.11` 相关功能和稳定性测试。
 
 ### 直接使用
 
@@ -48,9 +48,9 @@ author_name [Author]:
 author_email [author@example.com]: 
 version [0.1.0]: 
 Select python_version:
-1 - 3.10
-2 - 3.9
-Choose from 1, 2 [1]: 
+1 - 3.11
+2 - 3.10
+Choose from 1, 2 [1]: 2
 use_src_layout [y]: 
 use_poetry [y]: 
 use_docker [n]: 
@@ -85,6 +85,8 @@ my_project
 ├── docs
 │   └── development.md
 ├── pyproject.toml
+├── .editorconfig
+├── .pre-commit-config.yaml
 ├── src
 │   └── my_project
 │       └── __init__.py
@@ -133,6 +135,13 @@ tox
 
 ## 安装项目开发时需要的依赖。安装完成后，会自动更新 poetry.lock 文件，锁定当前版本。
 poetry add aiohttp
+
+## pre-commit预提交，是git hooks中的一个钩子，由 git commit 命令调用，可以通过 --no-verify 参数绕过调用 pre-commit 。
+## 要使用pre-commit钩子，请先安装pre-commit库
+pip install pre-commit
+## 命令行安装，卸载为 `pre-commit uninstall`
+pre-commit install
+## git commit -m '修改内容' 会触发预提交钩子指令，完成校验逻辑
 ```
 
 更多使用细节请查看 [使用说明](./docs/usage.md) 。

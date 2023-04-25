@@ -136,9 +136,9 @@ author_name [Author]: ming
 author_email [ming@example.com]: ming@gmail.com
 version [0.1.0]:
 Select python_version:
-1 - 3.10
-2 - 3.9
-Choose from 1, 2 [1]:
+1 - 3.11
+2 - 3.10
+Choose from 1, 2 [1]: 2
 ```
 
 选择使用的 Python 版本。建议使用 `Python 3.10` 。
@@ -155,9 +155,9 @@ author_name [Author]: ming
 author_email [ming@example.com]: ming@gmail.com
 version [0.1.0]:
 Select python_version:
-1 - 3.10
-2 - 3.9
-Choose from 1, 2 [1]: 
+1 - 3.11
+2 - 3.10
+Choose from 1, 2 [1]: 2
 use_src_layout [y]: 
 ```
 
@@ -181,9 +181,9 @@ author_name [Author]: ming
 author_email [ming@example.com]: ming@gmail.com
 version [0.1.0]:
 Select python_version:
-1 - 3.10
-2 - 3.9
-Choose from 1, 2 [1]: 
+1 - 3.11
+2 - 3.10
+Choose from 1, 2 [1]: 2
 use_src_layout [y]: 
 use_poetry [y]: 
 ```
@@ -206,9 +206,9 @@ author_name [Author]: ming
 author_email [ming@example.com]: ming@gmail.com
 version [0.1.0]: 0.1.0    
 Select python_version:
-1 - 3.10
-2 - 3.9
-Choose from 1, 2 [1]: 
+1 - 3.11
+2 - 3.10
+Choose from 1, 2 [1]: 2
 use_src_layout [y]: 
 use_poetry [y]: 
 use_docker [n]: 
@@ -216,7 +216,7 @@ use_docker [n]:
 
 选择是否使用 Docker 。默认不使用。
 
-如果选择使用，会在项目中生成简单的 `Dockerfile` 和 `.dockerignoer` 文件。
+如果选择使用，会在项目中生成简单的 `Dockerfile` 和 `.dockerignore` 文件。
 
 ### CI 工具(ci_tools)
 
@@ -230,9 +230,9 @@ author_name [Author]: ming
 author_email [ming@example.com]: ming@gmail.com
 version [0.1.0]: 0.1.0    
 Select python_version:
-1 - 3.10
-2 - 3.9
-Choose from 1, 2 [1]: 
+1 - 3.11
+2 - 3.10
+Choose from 1, 2 [1]: 2
 use_src_layout [y]: 
 use_poetry [y]: 
 use_docker [n]: 
@@ -257,9 +257,9 @@ author_name [Author]: ming
 author_email [ming@example.com]: ming@gmail.com
 version [0.1.0]: 0.1.0    
 Select python_version:
-1 - 3.10
-2 - 3.9
-Choose from 1, 2 [1]: 
+1 - 3.11
+2 - 3.10
+Choose from 1, 2 [1]: 2
 use_src_layout [y]: 
 use_poetry [y]: 
 use_docker [n]: 
@@ -285,6 +285,8 @@ hello_world
 ├── docs
 │   └── development.md
 ├── pyproject.toml
+├── .editorconfig
+├── .pre-commit-config.yaml
 ├── src
 │   └── hello_world
 │       └── __init__.py
@@ -299,6 +301,8 @@ hello_world
 
 - `LICENSE` ： 项目的许可证
 - `pyproject.toml` ：由 [Poetry](https://python-poetry.org/) 生成的带有 [Poetry](https://python-poetry.org/) 配置的项目描述文件。
+- `.editorconfig` ： 编辑器配置文件
+- `.pre-commit-config.yaml` : pre-commit 依赖文件, 通过 `pre-commit install` 进行安装, `git commit` 提交时自动校验。
 - `README.md` ：项目自述文件
 - `tox.ini` ：自动化测试工具 [Tox](https://tox.readthedocs.io/en/latest/) 的配置文件。
 
@@ -478,7 +482,7 @@ ________________________________________________________________________________
 
 可以看到 tox 做了如下事情：
 
-- 执行了 `py310` 的测试，
+- 执行了 `py311` 的测试，
 - [isort](https://pycqa.github.io/isort/) 的包导入检查，
 - [pylint](https://www.pylint.org/) 的 Python 语法规范检查。
 
