@@ -20,7 +20,7 @@
 
 **注意：** 项目支持 `Python >= 3.10` , 并且已经启用 `Python 3.11` 相关功能和稳定性测试。
 
-### 直接使用
+## 直接使用
 
 ```bash
 # 升级最新 pip
@@ -35,31 +35,31 @@ pip install -U cookiecutter
 cookiecutter https://github.com/pyloong/cookiecutter-pythonic-project
 ```
 
-### 详细说明
+## 详细说明
 
-#### 创建项目
+### 创建项目
 
 ```text
 ❯ cookiecutter https://github.com/pyloong/cookiecutter-pythonic-project
-project_name [My Project]: 
-project_slug [my_project]: 
-project_description [My Awesome Project!]: 
-author_name [Author]: 
-author_email [author@example.com]: 
-version [0.1.0]: 
+project_name [My Project]:
+project_slug [my_project]:
+project_description [My Awesome Project!]:
+author_name [Author]:
+author_email [author@example.com]:
+version [0.1.0]:
 Select python_version:
-1 - 3.11
-2 - 3.10
-Choose from 1, 2 [1]: 2
-use_src_layout [y]: 
-use_poetry [y]: 
-use_docker [n]: 
+1 - 3.10
+2 - 3.11
+Choose from 1, 2 [1]:
+use_src_layout [y]:
+use_poetry [y]:
+use_docker [n]:
 Select ci_tools:
 1 - none
 2 - Gitlab
 3 - Github
-Choose from 1, 2, 3 [1]: 
-init_skeleton [n]: 
+Choose from 1, 2, 3 [1]:
+init_skeleton [n]:
 ```
 
 上述操作，全部使用了默认逻辑：
@@ -80,37 +80,43 @@ init_skeleton [n]:
 
 ```text
 my_project
+├── .editorconfig
+├── .gitignore
+├── .pre-commit-config.yaml
 ├── LICENSE
 ├── README.md
 ├── docs
-│   └── development.md
+│   └── development.md
 ├── pyproject.toml
-├── .editorconfig
-├── .pre-commit-config.yaml
 ├── src
-│   └── my_project
-│       └── __init__.py
+│   └── my_project
+│       └── __init__.py
 ├── tests
-│   ├── __init__.py
-│   ├── conftest.py
-│   └── test_version.py
+│   ├── __init__.py
+│   ├── conftest.py
+│   └── test_version.py
 └── tox.ini
+
+5 directories, 12 files
 ```
 
 目录中包含了一个完整项目所需要的内容。有项目打包用到的描述文件，记录项目依赖文件和一个简单的测试用例。
 
 项目使用 SRC 目录结构，项目模块在 SRC 下。强烈建议开发前测试你的代码，可以避免因项目生成项目模板导致后期开发异常。
 
-#### 使用项目
+### 使用项目
 
-进入项目目录：
+#### 初始化项目
 
 ```bash
 ## 进入到项目中
 cd my_project
 
-## 初始化项目环境
-## 如果使用了 poetry 则执行 poetry install -v 
+## 初始化项目 git
+git init
+
+## 初始化Python项目环境
+## 如果使用了 poetry 则执行 poetry install -v
 poetry install -v
 
 ## 如果不使用 poetry 则执行 pip install -r requirements.txt
@@ -130,12 +136,38 @@ poetry install -v
 ## 进入虚拟环境
 poetry shell
 
-## 自动化测试项目
+## 执行 tox ，验证项目完整性
 tox
+
+## 提交项目
+git add .
+git commit -m "feat: init project."
+```
+
+#### 功能业务
+
+```bash
+
 
 ## 安装项目开发时需要的依赖。安装完成后，会自动更新 poetry.lock 文件，锁定当前版本。
 poetry add aiohttp
 
+## 编写逻辑
+
+## 编写单元测试
+
+## 执行 tox ，验证测试
+tox
+
+## 提交功能
+git add .
+git commit -m "feat: add foo logic"
+
+```
+
+#### git per-commit 配置
+
+```bash
 ## pre-commit预提交，是git hooks中的一个钩子，由 git commit 命令调用，可以通过 --no-verify 参数绕过调用 pre-commit 。
 ## 要使用pre-commit钩子，请先安装pre-commit库
 pip install pre-commit
