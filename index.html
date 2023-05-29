@@ -15,7 +15,7 @@
         <link rel="next" href="usage/">
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.ded33207.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.26e3688c.min.css">
       
       
 
@@ -244,17 +244,16 @@
     特性
   </a>
   
-    <nav class="md-nav" aria-label="特性">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     直接使用
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     详细说明
   </a>
@@ -274,6 +273,28 @@
     使用项目
   </a>
   
+    <nav class="md-nav" aria-label="使用项目">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    初始化项目
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    功能业务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-per-commit" class="md-nav__link">
+    git per-commit 配置
+  </a>
+  
 </li>
         
       </ul>
@@ -287,7 +308,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     开发与协作
   </a>
   
@@ -362,17 +383,16 @@
     特性
   </a>
   
-    <nav class="md-nav" aria-label="特性">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     直接使用
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     详细说明
   </a>
@@ -392,6 +412,28 @@
     使用项目
   </a>
   
+    <nav class="md-nav" aria-label="使用项目">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    初始化项目
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    功能业务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-per-commit" class="md-nav__link">
+    git per-commit 配置
+  </a>
+  
 </li>
         
       </ul>
@@ -405,7 +447,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     开发与协作
   </a>
   
@@ -448,7 +490,7 @@
 <li>可选初始化通用项目骨架</li>
 </ul>
 <p><strong>注意：</strong> 项目支持 <code>Python &gt;= 3.10</code> , 并且已经启用 <code>Python 3.11</code> 相关功能和稳定性测试。</p>
-<h3 id="_2">直接使用</h3>
+<h2 id="_2">直接使用</h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># 升级最新 pip</span>
 pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>pip
 
@@ -460,28 +502,28 @@ pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </s
 <span class="c1"># 如果使用默认配置，则一路回车就可以。</span>
 cookiecutter<span class="w"> </span>https://github.com/pyloong/cookiecutter-pythonic-project
 </code></pre></div>
-<h3 id="_3">详细说明</h3>
-<h4 id="_4">创建项目</h4>
+<h2 id="_3">详细说明</h2>
+<h3 id="_4">创建项目</h3>
 <div class="highlight"><pre><span></span><code>❯ cookiecutter https://github.com/pyloong/cookiecutter-pythonic-project
-project_name [My Project]: 
-project_slug [my_project]: 
-project_description [My Awesome Project!]: 
-author_name [Author]: 
-author_email [author@example.com]: 
-version [0.1.0]: 
+project_name [My Project]:
+project_slug [my_project]:
+project_description [My Awesome Project!]:
+author_name [Author]:
+author_email [author@example.com]:
+version [0.1.0]:
 Select python_version:
-1 - 3.11
-2 - 3.10
-Choose from 1, 2 [1]: 2
-use_src_layout [y]: 
-use_poetry [y]: 
-use_docker [n]: 
+1 - 3.10
+2 - 3.11
+Choose from 1, 2 [1]:
+use_src_layout [y]:
+use_poetry [y]:
+use_docker [n]:
 Select ci_tools:
 1 - none
 2 - Gitlab
 3 - Github
-Choose from 1, 2, 3 [1]: 
-init_skeleton [n]: 
+Choose from 1, 2, 3 [1]:
+init_skeleton [n]:
 </code></pre></div>
 <p>上述操作，全部使用了默认逻辑：</p>
 <ul>
@@ -499,31 +541,37 @@ init_skeleton [n]:
 </ul>
 <p>执行结束后，会在操作命令当前位置生成一个 <code>my_project</code> 目录，目录内容如下：</p>
 <div class="highlight"><pre><span></span><code>my_project
+├── .editorconfig
+├── .gitignore
+├── .pre-commit-config.yaml
 ├── LICENSE
 ├── README.md
 ├── docs
-│   └── development.md
+│   └── development.md
 ├── pyproject.toml
-├── .editorconfig
-├── .pre-commit-config.yaml
 ├── src
-│   └── my_project
-│       └── __init__.py
+│   └── my_project
+│       └── __init__.py
 ├── tests
-│   ├── __init__.py
-│   ├── conftest.py
-│   └── test_version.py
+│   ├── __init__.py
+│   ├── conftest.py
+│   └── test_version.py
 └── tox.ini
+
+5 directories, 12 files
 </code></pre></div>
 <p>目录中包含了一个完整项目所需要的内容。有项目打包用到的描述文件，记录项目依赖文件和一个简单的测试用例。</p>
 <p>项目使用 SRC 目录结构，项目模块在 SRC 下。强烈建议开发前测试你的代码，可以避免因项目生成项目模板导致后期开发异常。</p>
-<h4 id="_5">使用项目</h4>
-<p>进入项目目录：</p>
+<h3 id="_5">使用项目</h3>
+<h4 id="_6">初始化项目</h4>
 <div class="highlight"><pre><span></span><code><span class="c1">## 进入到项目中</span>
 <span class="nb">cd</span><span class="w"> </span>my_project
 
-<span class="c1">## 初始化项目环境</span>
-<span class="c1">## 如果使用了 poetry 则执行 poetry install -v </span>
+<span class="c1">## 初始化项目 git</span>
+git<span class="w"> </span>init
+
+<span class="c1">## 初始化Python项目环境</span>
+<span class="c1">## 如果使用了 poetry 则执行 poetry install -v</span>
 poetry<span class="w"> </span>install<span class="w"> </span>-v
 
 <span class="c1">## 如果不使用 poetry 则执行 pip install -r requirements.txt</span>
@@ -543,13 +591,30 @@ poetry<span class="w"> </span>install<span class="w"> </span>-v
 <span class="c1">## 进入虚拟环境</span>
 poetry<span class="w"> </span>shell
 
-<span class="c1">## 自动化测试项目</span>
+<span class="c1">## 执行 tox ，验证项目完整性</span>
 tox
 
-<span class="c1">## 安装项目开发时需要的依赖。安装完成后，会自动更新 poetry.lock 文件，锁定当前版本。</span>
+<span class="c1">## 提交项目</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: init project.&quot;</span>
+</code></pre></div>
+<h4 id="_7">功能业务</h4>
+<div class="highlight"><pre><span></span><code><span class="c1">## 安装项目开发时需要的依赖。安装完成后，会自动更新 poetry.lock 文件，锁定当前版本。</span>
 poetry<span class="w"> </span>add<span class="w"> </span>aiohttp
 
-<span class="c1">## pre-commit预提交，是git hooks中的一个钩子，由 git commit 命令调用，可以通过 --no-verify 参数绕过调用 pre-commit 。</span>
+<span class="c1">## 编写逻辑</span>
+
+<span class="c1">## 编写单元测试</span>
+
+<span class="c1">## 执行 tox ，验证测试</span>
+tox
+
+<span class="c1">## 提交功能</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: add foo logic&quot;</span>
+</code></pre></div>
+<h4 id="git-per-commit">git per-commit 配置</h4>
+<div class="highlight"><pre><span></span><code><span class="c1">## pre-commit预提交，是git hooks中的一个钩子，由 git commit 命令调用，可以通过 --no-verify 参数绕过调用 pre-commit 。</span>
 <span class="c1">## 要使用pre-commit钩子，请先安装pre-commit库</span>
 pip<span class="w"> </span>install<span class="w"> </span>pre-commit
 <span class="c1">## 命令行安装，卸载为 `pre-commit uninstall`</span>
@@ -557,7 +622,7 @@ pre-commit<span class="w"> </span>install
 <span class="c1">## git commit -m &#39;修改内容&#39; 会触发预提交钩子指令，完成校验逻辑</span>
 </code></pre></div>
 <p>更多使用细节请查看 <a href="./docs/usage.md">使用说明</a> 。</p>
-<h2 id="_6">开发与协作</h2>
+<h2 id="_8">开发与协作</h2>
 <ul>
 <li>fork</li>
 <li>code</li>
@@ -604,7 +669,7 @@ pre-commit<span class="w"> </span>install
     <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="assets/javascripts/bundle.51198bba.min.js"></script>
+      <script src="assets/javascripts/bundle.b4d07000.min.js"></script>
       
     
   </body>
