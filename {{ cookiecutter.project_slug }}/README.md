@@ -1,19 +1,21 @@
 # {{ cookiecutter.project_name }}
 
-## Overview
+## 1. Overview
 
 {{ cookiecutter.project_description}}
 
-## Usage
+## 2. Usage
 
-    1. init project
-    
-    ```
-    pipenv install
-    ```
+### 2.1 init project
+
+```bash
+poetry install -v
+```
+
+### 2.2 usage
 
 TODO
 
-## Develop
+## 3. Develop
 
 You may need to read the [develop document](./docs/development.md) to use SRC Layout in your IDE.

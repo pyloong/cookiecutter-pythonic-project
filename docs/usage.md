@@ -37,7 +37,7 @@ cookiecutter https://github.com/pyloong/cookiecutter-pythonic-project
 
 ```text
 ❯ cookiecutter https://github.com/pyloong/cookiecutter-pythonic-project
-You've downloaded /home/kevin/.cookiecutters/cookiecutter-pythonic-project before. Is it okay to delete and re-download it? [yes]: 
+You've downloaded /home/kevin/.cookiecutters/cookiecutter-pythonic-project before. Is it okay to delete and re-download it? [yes]:
 ```
 
 在使用 [Cookiecutter](https://github.com/cookiecutter/cookiecutter) 时，会将项目模板下载到本地作为缓存。如果不是第一次使用，
@@ -47,7 +47,7 @@ You've downloaded /home/kevin/.cookiecutters/cookiecutter-pythonic-project befor
 
 ```text
 ❯ cookiecutter https://github.com/pyloong/cookiecutter-pythonic-project
-You've downloaded /home/kevin/.cookiecutters/cookiecutter-pythonic-project before. Is it okay to delete and re-download it? [yes]: 
+You've downloaded /home/kevin/.cookiecutters/cookiecutter-pythonic-project before. Is it okay to delete and re-download it? [yes]:
 project_name [My Project]: Hello World
 ```
 
@@ -69,9 +69,10 @@ project_name [My Project]: Hello World
 
 ```text
 ❯ cookiecutter https://github.com/pyloong/cookiecutter-pythonic-project
-You've downloaded /home/kevin/.cookiecutters/cookiecutter-pythonic-project before. Is it okay to delete and re-download it? [yes]: 
+You've downloaded /home/kevin/.cookiecutters/cookiecutter-pythonic-project before. Is it okay to delete and re-download it? [yes]:
 project_name [My Project]: Hello World
 project_slug [hello_world]:
+
 ```
 
 可以直接回车使用自动生成的包名称。或者手动输入想要的包名称。
@@ -82,10 +83,11 @@ project_slug [hello_world]:
 
 ```text
 ❯ cookiecutter https://github.com/pyloong/cookiecutter-pythonic-project
-You've downloaded /home/kevin/.cookiecutters/cookiecutter-pythonic-project before. Is it okay to delete and re-download it? [yes]: 
+You've downloaded /home/kevin/.cookiecutters/cookiecutter-pythonic-project before. Is it okay to delete and re-download it? [yes]:
 project_name [My Project]: Hello World
-project_slug [hello_world]: 
+project_slug [hello_world]:
 project_description [My Awesome Project!]: This is my first python package, i love it.
+
 ```
 
 ### 项目作者(author_name)
@@ -98,25 +100,27 @@ author_name [Author]: ming
 
 ```text
 ❯ cookiecutter https://github.com/pyloong/cookiecutter-pythonic-project
-You've downloaded /home/kevin/.cookiecutters/cookiecutter-pythonic-project before. Is it okay to delete and re-download it? [yes]: 
+You've downloaded /home/kevin/.cookiecutters/cookiecutter-pythonic-project before. Is it okay to delete and re-download it? [yes]:
 project_name [My Project]: Hello World
-project_slug [hello_world]: 
+project_slug [hello_world]:
 project_description [My Awesome Project!]: This is my first python package, i love it.
 author_name [Author]: ming
 author_email [ming@example.com]: ming@gmail.com
+
 ```
 
 ### 项目版本(version)
 
 ```text
 ❯ cookiecutter https://github.com/pyloong/cookiecutter-pythonic-project
-You've downloaded /home/kevin/.cookiecutters/cookiecutter-pythonic-project before. Is it okay to delete and re-download it? [yes]: 
+You've downloaded /home/kevin/.cookiecutters/cookiecutter-pythonic-project before. Is it okay to delete and re-download it? [yes]:
 project_name [My Project]: Hello World
-project_slug [hello_world]: 
+project_slug [hello_world]:
 project_description [My Awesome Project!]: This is my first python package, i love it.
 author_name [Author]: ming
 author_email [ming@example.com]: ming@gmail.com
 version [0.1.0]:
+
 ```
 
 输入合法的项目版本号。
@@ -128,17 +132,18 @@ version [0.1.0]:
 
 ```text
 ❯ cookiecutter https://github.com/pyloong/cookiecutter-pythonic-project
-You've downloaded /home/kevin/.cookiecutters/cookiecutter-pythonic-project before. Is it okay to delete and re-download it? [yes]: 
+You've downloaded /home/kevin/.cookiecutters/cookiecutter-pythonic-project before. Is it okay to delete and re-download it? [yes]:
 project_name [My Project]: Hello World
-project_slug [hello_world]: 
+project_slug [hello_world]:
 project_description [My Awesome Project!]: This is my first python package, i love it.
 author_name [Author]: ming
 author_email [ming@example.com]: ming@gmail.com
 version [0.1.0]:
 Select python_version:
-1 - 3.11
-2 - 3.10
-Choose from 1, 2 [1]: 2
+1 - 3.10
+2 - 3.11
+Choose from 1, 2 [1]:
+
 ```
 
 选择使用的 Python 版本。建议使用 `Python 3.10` 。
@@ -147,18 +152,19 @@ Choose from 1, 2 [1]: 2
 
 ```text
 ❯ cookiecutter https://github.com/pyloong/cookiecutter-pythonic-project
-You've downloaded /home/kevin/.cookiecutters/cookiecutter-pythonic-project before. Is it okay to delete and re-download it? [yes]: 
+You've downloaded /home/kevin/.cookiecutters/cookiecutter-pythonic-project before. Is it okay to delete and re-download it? [yes]:
 project_name [My Project]: Hello World
-project_slug [hello_world]: 
+project_slug [hello_world]:
 project_description [My Awesome Project!]: This is my first python package, i love it.
 author_name [Author]: ming
 author_email [ming@example.com]: ming@gmail.com
 version [0.1.0]:
 Select python_version:
-1 - 3.11
-2 - 3.10
+1 - 3.10
+2 - 3.11
 Choose from 1, 2 [1]: 2
-use_src_layout [y]: 
+use_src_layout [y]:
+
 ```
 
 选择是否使用 SRC 目录结构。
@@ -173,19 +179,19 @@ use_src_layout [y]:
 
 ```text
 ❯ cookiecutter https://github.com/pyloong/cookiecutter-pythonic-project
-You've downloaded /home/kevin/.cookiecutters/cookiecutter-pythonic-project before. Is it okay to delete and re-download it? [yes]: 
+You've downloaded /home/kevin/.cookiecutters/cookiecutter-pythonic-project before. Is it okay to delete and re-download it? [yes]:
 project_name [My Project]: Hello World
-project_slug [hello_world]: 
+project_slug [hello_world]:
 project_description [My Awesome Project!]: This is my first python package, i love it.
 author_name [Author]: ming
 author_email [ming@example.com]: ming@gmail.com
 version [0.1.0]:
 Select python_version:
-1 - 3.11
-2 - 3.10
+1 - 3.10
+2 - 3.11
 Choose from 1, 2 [1]: 2
-use_src_layout [y]: 
-use_poetry [y]: 
+use_src_layout [y]:
+use_poetry [y]:
 ```
 
 选择是否使用 [Poetry](https://python-poetry.org/) 作为虚拟环境管理工具。默认情况下是推荐使用的，
@@ -198,20 +204,21 @@ use_poetry [y]:
 
 ```text
 ❯ cookiecutter https://github.com/pyloong/cookiecutter-pythonic-project
-You've downloaded /home/kevin/.cookiecutters/cookiecutter-pythonic-project before. Is it okay to delete and re-download it? [yes]: 
+You've downloaded /home/kevin/.cookiecutters/cookiecutter-pythonic-project before. Is it okay to delete and re-download it? [yes]:
 project_name [My Project]: Hello World
-project_slug [hello_world]: 
+project_slug [hello_world]:
 project_description [My Awesome Project!]: This is my first python package, i love it.
 author_name [Author]: ming
 author_email [ming@example.com]: ming@gmail.com
-version [0.1.0]: 0.1.0    
+version [0.1.0]:
 Select python_version:
-1 - 3.11
-2 - 3.10
+1 - 3.10
+2 - 3.11
 Choose from 1, 2 [1]: 2
-use_src_layout [y]: 
-use_poetry [y]: 
-use_docker [n]: 
+use_src_layout [y]:
+use_poetry [y]:
+use_docker [n]:
+
 ```
 
 选择是否使用 Docker 。默认不使用。
@@ -222,25 +229,26 @@ use_docker [n]:
 
 ```text
 ❯ cookiecutter https://github.com/pyloong/cookiecutter-pythonic-project
-You've downloaded /home/kevin/.cookiecutters/cookiecutter-pythonic-project before. Is it okay to delete and re-download it? [yes]: 
+You've downloaded /home/kevin/.cookiecutters/cookiecutter-pythonic-project before. Is it okay to delete and re-download it? [yes]:
 project_name [My Project]: Hello World
-project_slug [hello_world]: 
+project_slug [hello_world]:
 project_description [My Awesome Project!]: This is my first python package, i love it.
 author_name [Author]: ming
 author_email [ming@example.com]: ming@gmail.com
-version [0.1.0]: 0.1.0    
+version [0.1.0]:
 Select python_version:
-1 - 3.11
-2 - 3.10
+1 - 3.10
+2 - 3.11
 Choose from 1, 2 [1]: 2
-use_src_layout [y]: 
-use_poetry [y]: 
-use_docker [n]: 
+use_src_layout [y]:
+use_poetry [y]:
+use_docker [n]:
 Select ci_tools:
 1 - none
 2 - Gitlab
 3 - Github
 Choose from 1, 2, 3 [1]:
+
 ```
 
 选择使用的 CI 工具，可选的有 `Gitlab` 和 `Github` 。如果选择一个 CI 工具，默认会生成项目的测试、构建、发布到索引服务器的三步操作。
@@ -249,26 +257,26 @@ Choose from 1, 2, 3 [1]:
 
 ```text
 ❯ cookiecutter https://github.com/pyloong/cookiecutter-pythonic-project
-You've downloaded /home/kevin/.cookiecutters/cookiecutter-pythonic-project before. Is it okay to delete and re-download it? [yes]: 
+You've downloaded /home/kevin/.cookiecutters/cookiecutter-pythonic-project before. Is it okay to delete and re-download it? [yes]:
 project_name [My Project]: Hello World
-project_slug [hello_world]: 
+project_slug [hello_world]:
 project_description [My Awesome Project!]: This is my first python package, i love it.
 author_name [Author]: ming
 author_email [ming@example.com]: ming@gmail.com
-version [0.1.0]: 0.1.0    
+version [0.1.0]:
 Select python_version:
-1 - 3.11
-2 - 3.10
-Choose from 1, 2 [1]: 2
-use_src_layout [y]: 
-use_poetry [y]: 
-use_docker [n]: 
+1 - 3.10
+2 - 3.11
+Choose from 1, 2 [1]:
+use_src_layout [y]:
+use_poetry [y]:
+use_docker [n]:
 Select ci_tools:
 1 - none
 2 - Gitlab
 3 - Github
-Choose from 1, 2, 3 [1]: 
-init_skeleton [n]: 
+Choose from 1, 2, 3 [1]:
+init_skeleton [n]: y
 ```
 
 选择是否初始化项目骨架。如果选择初始化，则会在生成的项目中增加配置系统，初始化日志配置，提供一个通用的命令行入口，并将
@@ -280,21 +288,32 @@ init_skeleton [n]:
 
 ```text
 hello_world
+├── .editorconfig
+├── .gitignore
+├── .pre-commit-config.yaml
 ├── LICENSE
 ├── README.md
 ├── docs
-│   └── development.md
+│   └── development.md
 ├── pyproject.toml
-├── .editorconfig
-├── .pre-commit-config.yaml
 ├── src
-│   └── hello_world
-│       └── __init__.py
+│   └── hello_world
+│       ├── __init__.py
+│       ├── cmdline.py
+│       ├── config
+│       │   ├── __init__.py
+│       │   └── settings.yml
+│       └── log.py
 ├── tests
-│   ├── __init__.py
-│   ├── conftest.py
-│   └── test_version.py
+│   ├── __init__.py
+│   ├── conftest.py
+│   ├── settings.yml
+│   ├── test_cmdline.py
+│   ├── test_log.py
+│   └── test_version.py
 └── tox.ini
+
+6 directories, 19 files
 ```
 
 在项目根目录，包含了一些描述性的文件：
@@ -342,147 +361,187 @@ poetry shell
 
 <!-- markdownlint-disable MD013 MD033-->
 ```text
-.package create: /private/tmp/test/hello_world/.tox/.package
-.package installdeps: poetry-core>=1.0.0
-py310 create: /private/tmp/test/hello_world/.tox/py310
-py310 installdeps: poetry
-py310 inst: /private/tmp/test/hello_world/.tox/.tmp/package/1/hello_world-0.1.0.tar.gz
-py310 installed: CacheControl==0.12.11,cachy==0.3.0,certifi==2022.6.15,charset-normalizer==2.1.1,cleo==0.8.1,clikit==0.6.2,crashtest==0.3.1,distlib==0.3.5,filelock==3.8.0,hello-world @ file:///private/tmp/test/hello_world/.tox/.tmp/package/1/hello_world-0.1.0.tar.gz,html5lib==1.1,idna==3.3,keyring==23.8.2,lockfile==0.12.2,msgpack==1.0.4,packaging==20.9,pastel==0.2.1,pexpect==4.8.0,pkginfo==1.8.3,platformdirs==2.5.2,poetry==1.1.15,poetry-core==1.0.8,ptyprocess==0.7.0,pylev==1.4.0,pyparsing==3.0.9,requests==2.28.1,requests-toolbelt==0.9.1,shellingham==1.5.0,six==1.16.0,tomlkit==0.11.4,urllib3==1.26.12,virtualenv==20.16.3,webencodings==0.5.1
-py310 run-test-pre: PYTHONHASHSEED='2454675361'
-py310 run-test: commands[0] | poetry install -v
-Using virtualenv: /private/tmp/test/hello_world/.tox/py310
-Updating dependencies
-Resolving dependencies... (98.0s)
-
-Writing lock file
-
-Finding the necessary packages for the current system
-
-Package operations: 30 installs, 1 update, 0 removals, 4 skipped
-
-  • Installing six (1.16.0): Skipped for the following reason: Already installed
-  • Installing markupsafe (2.1.1)
-  • Installing pyparsing (3.0.9): Skipped for the following reason: Already installed
-  • Installing python-dateutil (2.8.2)
-  • Installing pyyaml (6.0)
-  • Installing zipp (3.8.1)
-  • Installing click (8.1.3)
-  • Installing ghp-import (2.1.0)
-  • Installing importlib-metadata (4.12.0)
-  • Installing jinja2 (3.1.2)
-  • Installing lazy-object-proxy (1.7.1)
-  • Installing markdown (3.3.7)
-  • Installing mergedeep (1.3.4)
-  • Updating packaging (20.9 -> 21.3)
-  • Installing pyyaml-env-tag (0.1)
-  • Installing watchdog (2.1.9)
-  • Installing wrapt (1.14.1)
-  • Installing astroid (2.11.7)
-  • Installing attrs (22.1.0)
-  • Installing dill (0.3.5.1)
-  • Installing iniconfig (1.1.1)
-  • Installing isort (5.10.1)
-  • Installing mccabe (0.7.0)
-  • Installing mkdocs (1.3.1)
-  • Installing mkdocs-material-extensions (1.0.3)
-  • Installing platformdirs (2.5.2): Skipped for the following reason: Already installed
-  • Installing pluggy (1.0.0)
-  • Installing py (1.11.0)
-  • Installing pygments (2.13.0)
-  • Installing pymdown-extensions (9.5)
-  • Installing tomli (2.0.1)
-  • Installing tomlkit (0.11.4): Skipped for the following reason: Already installed
-  • Installing mkdocs-material (8.4.1)
-  • Installing pylint (2.14.5)
-  • Installing pytest (7.1.2)
-
-Installing the current project: hello_world (0.1.0)
-py310 run-test: commands[1] | poetry run pytest tests
-============================================================================================================= test session starts ==============================================================================================================
-platform darwin -- Python 3.10.6, pytest-7.1.2, pluggy-1.0.0
-cachedir: .tox/py310/.pytest_cache
-rootdir: /private/tmp/test/hello_world
-collected 1 item                                                                                                                                                                                                                               
-
-tests/test_version.py .                                                                                                                                                                                                                  [100%]
-
-============================================================================================================== 1 passed in 0.02s ===============================================================================================================
-isort create: /private/tmp/test/hello_world/.tox/isort
-isort installdeps: isort
-isort inst: /private/tmp/test/hello_world/.tox/.tmp/package/1/hello_world-0.1.0.tar.gz
-isort installed: hello-world @ file:///private/tmp/test/hello_world/.tox/.tmp/package/1/hello_world-0.1.0.tar.gz,isort==5.10.1
-isort run-test-pre: PYTHONHASHSEED='2454675361'
-isort run-test: commands[0] | isort . --check-only --diff
-Skipped 1 files
-pylint create: /private/tmp/test/hello_world/.tox/pylint
-pylint installdeps: poetry
-pylint inst: /private/tmp/test/hello_world/.tox/.tmp/package/1/hello_world-0.1.0.tar.gz
-pylint installed: CacheControl==0.12.11,cachy==0.3.0,certifi==2022.6.15,charset-normalizer==2.1.1,cleo==0.8.1,clikit==0.6.2,crashtest==0.3.1,distlib==0.3.5,filelock==3.8.0,hello-world @ file:///private/tmp/test/hello_world/.tox/.tmp/package/1/hello_world-0.1.0.tar.gz,html5lib==1.1,idna==3.3,keyring==23.8.2,lockfile==0.12.2,msgpack==1.0.4,packaging==20.9,pastel==0.2.1,pexpect==4.8.0,pkginfo==1.8.3,platformdirs==2.5.2,poetry==1.1.15,poetry-core==1.0.8,ptyprocess==0.7.0,pylev==1.4.0,pyparsing==3.0.9,requests==2.28.1,requests-toolbelt==0.9.1,shellingham==1.5.0,six==1.16.0,tomlkit==0.11.4,urllib3==1.26.12,virtualenv==20.16.3,webencodings==0.5.1
-pylint run-test-pre: PYTHONHASHSEED='2454675361'
-pylint run-test: commands[0] | poetry install -v
-Using virtualenv: /private/tmp/test/hello_world/.tox/pylint
+py310: install_deps> python -I -m pip install poetry
+.pkg: install_requires> python -I -m pip install poetry-core
+.pkg: _optional_hooks> python /Users/kevin/.local/share/virtualenvs/hello-world-y-OCt5ty-py3.10/lib/python3.10/site-packages/pyproject_api/_backend.py True poetry.core.masonry.api
+.pkg: get_requires_for_build_sdist> python /Users/kevin/.local/share/virtualenvs/hello-world-y-OCt5ty-py3.10/lib/python3.10/site-packages/pyproject_api/_backend.py True poetry.core.masonry.api
+.pkg: prepare_metadata_for_build_wheel> python /Users/kevin/.local/share/virtualenvs/hello-world-y-OCt5ty-py3.10/lib/python3.10/site-packages/pyproject_api/_backend.py True poetry.core.masonry.api
+.pkg: build_sdist> python /Users/kevin/.local/share/virtualenvs/hello-world-y-OCt5ty-py3.10/lib/python3.10/site-packages/pyproject_api/_backend.py True poetry.core.masonry.api
+py310: install_package_deps> python -I -m pip install 'click<9.0.0,>=8.1.3' 'dynaconf<4.0.0,>=3.1.12'
+py310: install_package> python -I -m pip install --force-reinstall --no-deps /private/tmp/hello_world/.tox/.tmp/package/1/hello_world-0.1.0.tar.gz
+py310: commands[0]> poetry install -v
+Using virtualenv: /private/tmp/hello_world/.tox/py310
 Installing dependencies from lock file
 
 Finding the necessary packages for the current system
 
-Package operations: 30 installs, 1 update, 0 removals, 6 skipped
+Package operations: 37 installs, 5 updates, 0 removals, 11 skipped
 
-  • Removing atomicwrites (1.4.1): Skipped for the following reason: Not currently installed
-  • Removing colorama (0.4.5): Skipped for the following reason: Not currently installed
-  • Installing six (1.16.0): Skipped for the following reason: Already installed
-  • Installing markupsafe (2.1.1)
-  • Installing pyparsing (3.0.9): Skipped for the following reason: Already installed
+  • Installing lazy-object-proxy (1.9.0)
+  • Installing markupsafe (2.1.2)
   • Installing python-dateutil (2.8.2)
   • Installing pyyaml (6.0)
-  • Installing zipp (3.8.1)
-  • Installing click (8.1.3)
+  • Installing typing-extensions (4.6.2)
+  • Installing wrapt (1.15.0)
+  • Installing astroid (2.15.5)
+  • Installing dill (0.3.6)
+  • Installing exceptiongroup (1.1.1)
   • Installing ghp-import (2.1.0)
-  • Installing importlib-metadata (4.12.0)
+  • Installing iniconfig (2.0.0)
+  • Installing isort (5.12.0)
   • Installing jinja2 (3.1.2)
-  • Installing lazy-object-proxy (1.7.1)
   • Installing markdown (3.3.7)
-  • Installing mergedeep (1.3.4)
-  • Updating packaging (20.9 -> 21.3)
-  • Installing pyyaml-env-tag (0.1)
-  • Installing watchdog (2.1.9)
-  • Installing wrapt (1.14.1)
-  • Installing astroid (2.11.7)
-  • Installing attrs (22.1.0)
-  • Installing dill (0.3.5.1)
-  • Installing iniconfig (1.1.1)
-  • Installing isort (5.10.1)
   • Installing mccabe (0.7.0)
-  • Installing mkdocs (1.3.1)
-  • Installing mkdocs-material-extensions (1.0.3)
-  • Installing platformdirs (2.5.2): Skipped for the following reason: Already installed
+  • Installing mergedeep (1.3.4)
+  • Updating platformdirs (2.6.2 -> 3.5.1)
   • Installing pluggy (1.0.0)
-  • Installing py (1.11.0)
-  • Installing pygments (2.13.0)
-  • Installing pymdown-extensions (9.5)
-  • Installing tomli (2.0.1)
-  • Installing tomlkit (0.11.4): Skipped for the following reason: Already installed
-  • Installing mkdocs-material (8.4.1)
-  • Installing pylint (2.14.5)
-  • Installing pytest (7.1.2)
+  • Installing pyyaml-env-tag (0.1)
+  • Updating setuptools (65.6.0 -> 67.8.0)
+  • Updating urllib3 (1.26.15 -> 2.0.2)
+  • Installing watchdog (3.0.0)
+  • Installing cachetools (5.3.1)
+  • Installing cfgv (3.3.1)
+  • Installing chardet (5.1.0)
+  • Installing colorama (0.4.6)
+  • Installing identify (2.5.24)
+  • Installing mkdocs (1.4.3)
+  • Installing mkdocs-material-extensions (1.1.1)
+  • Installing nodeenv (1.8.0)
+  • Installing pygments (2.15.1)
+  • Installing pylint (2.17.4)
+  • Installing pymdown-extensions (10.0.1)
+  • Installing pyproject-api (1.5.1)
+  • Installing pytest (7.3.1)
+  • Updating requests (2.30.0 -> 2.31.0)
+  • Installing toml (0.10.2)
+  • Updating virtualenv (20.21.1 -> 20.23.0)
+  • Installing certifi (2023.5.7): Skipped for the following reason: Already installed
+  • Installing charset-normalizer (3.1.0): Skipped for the following reason: Already installed
+  • Installing click (8.1.3): Skipped for the following reason: Already installed
+  • Installing distlib (0.3.6): Skipped for the following reason: Already installed
+  • Installing dynaconf (3.1.12): Skipped for the following reason: Already installed
+  • Installing filelock (3.12.0): Skipped for the following reason: Already installed
+  • Installing idna (3.4): Skipped for the following reason: Already installed
+  • Installing mkdocs-material (8.5.11)
+  • Installing packaging (23.1): Skipped for the following reason: Already installed
+  • Installing pre-commit (3.3.2)
+  • Installing pytest-pylint (0.19.0)
+  • Installing six (1.16.0): Skipped for the following reason: Already installed
+  • Installing tomli (2.0.1): Skipped for the following reason: Already installed
+  • Installing tomlkit (0.11.8): Skipped for the following reason: Already installed
+  • Installing tox (4.5.2)
 
 Installing the current project: hello_world (0.1.0)
-pylint run-test: commands[1] | poetry run pylint tests src
+py310: commands[1]> poetry run pytest tests
+====================================================================================================================================== test session starts =======================================================================================================================================
+platform darwin -- Python 3.10.11, pytest-7.3.1, pluggy-1.0.0
+cachedir: .tox/py310/.pytest_cache
+rootdir: /private/tmp/hello_world
+configfile: pyproject.toml
+plugins: pylint-0.19.0
+collected 10 items
+
+tests/test_cmdline.py .....                                                                                                                                                                                                                                                                [ 50%]
+tests/test_log.py ....                                                                                                                                                                                                                                                                     [ 90%]
+tests/test_version.py .                                                                                                                                                                                                                                                                    [100%]
+
+======================================================================================================================================== warnings summary ========================================================================================================================================
+.tox/py310/lib/python3.10/site-packages/pkg_resources/__init__.py:121
+  /private/tmp/hello_world/.tox/py310/lib/python3.10/site-packages/pkg_resources/__init__.py:121: DeprecationWarning: pkg_resources is deprecated as an API
+    warnings.warn("pkg_resources is deprecated as an API", DeprecationWarning)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+================================================================================================================================= 10 passed, 1 warning in 0.02s ==================================================================================================================================
+py310: OK ✔ in 27.77 seconds
+isort: install_deps> python -I -m pip install isort
+isort: install_package_deps> python -I -m pip install 'click<9.0.0,>=8.1.3' 'dynaconf<4.0.0,>=3.1.12'
+isort: install_package> python -I -m pip install --force-reinstall --no-deps /private/tmp/hello_world/.tox/.tmp/package/2/hello_world-0.1.0.tar.gz
+isort: commands[0]> isort . --check-only --diff
+Skipped 1 files
+isort: OK ✔ in 4.11 seconds
+pylint: install_deps> python -I -m pip install poetry
+pylint: install_package_deps> python -I -m pip install 'click<9.0.0,>=8.1.3' 'dynaconf<4.0.0,>=3.1.12'
+pylint: install_package> python -I -m pip install --force-reinstall --no-deps /private/tmp/hello_world/.tox/.tmp/package/3/hello_world-0.1.0.tar.gz
+pylint: commands[0]> poetry install -v
+Using virtualenv: /private/tmp/hello_world/.tox/pylint
+Installing dependencies from lock file
+
+Finding the necessary packages for the current system
+
+Package operations: 37 installs, 5 updates, 0 removals, 11 skipped
+
+  • Installing lazy-object-proxy (1.9.0)
+  • Installing markupsafe (2.1.2)
+  • Installing python-dateutil (2.8.2)
+  • Installing pyyaml (6.0)
+  • Installing typing-extensions (4.6.2)
+  • Installing wrapt (1.15.0)
+  • Installing astroid (2.15.5)
+  • Installing dill (0.3.6)
+  • Installing exceptiongroup (1.1.1)
+  • Installing ghp-import (2.1.0)
+  • Installing iniconfig (2.0.0)
+  • Installing isort (5.12.0)
+  • Installing jinja2 (3.1.2)
+  • Installing markdown (3.3.7)
+  • Installing mccabe (0.7.0)
+  • Installing mergedeep (1.3.4)
+  • Updating platformdirs (2.6.2 -> 3.5.1)
+  • Installing pluggy (1.0.0)
+  • Installing pyyaml-env-tag (0.1)
+  • Updating setuptools (65.6.0 -> 67.8.0)
+  • Updating urllib3 (1.26.15 -> 2.0.2)
+  • Installing watchdog (3.0.0)
+  • Installing cachetools (5.3.1)
+  • Installing cfgv (3.3.1)
+  • Installing chardet (5.1.0)
+  • Installing colorama (0.4.6)
+  • Installing identify (2.5.24)
+  • Installing mkdocs (1.4.3)
+  • Installing mkdocs-material-extensions (1.1.1)
+  • Installing nodeenv (1.8.0)
+  • Installing pygments (2.15.1)
+  • Installing pylint (2.17.4)
+  • Installing pymdown-extensions (10.0.1)
+  • Installing pyproject-api (1.5.1)
+  • Installing pytest (7.3.1)
+  • Updating requests (2.30.0 -> 2.31.0)
+  • Installing toml (0.10.2)
+  • Updating virtualenv (20.21.1 -> 20.23.0)
+  • Installing certifi (2023.5.7): Skipped for the following reason: Already installed
+  • Installing charset-normalizer (3.1.0): Skipped for the following reason: Already installed
+  • Installing click (8.1.3): Skipped for the following reason: Already installed
+  • Installing distlib (0.3.6): Skipped for the following reason: Already installed
+  • Installing filelock (3.12.0): Skipped for the following reason: Already installed
+  • Installing mkdocs-material (8.5.11)
+  • Installing packaging (23.1): Skipped for the following reason: Already installed
+  • Installing pre-commit (3.3.2)
+  • Installing pytest-pylint (0.19.0)
+  • Installing six (1.16.0): Skipped for the following reason: Already installed
+  • Installing tomli (2.0.1): Skipped for the following reason: Already installed
+  • Installing tomlkit (0.11.8): Skipped for the following reason: Already installed
+  • Installing dynaconf (3.1.12): Skipped for the following reason: Already installed
+  • Installing tox (4.5.2)
+  • Installing idna (3.4): Skipped for the following reason: Already installed
+
+Installing the current project: hello_world (0.1.0)
+pylint: commands[1]> poetry run pylint tests src
 
 --------------------------------------------------------------------
 Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
 
-___________________________________________________________________________________________________________________ summary ____________________________________________________________________________________________________________________
-  py310: commands succeeded
-  isort: commands succeeded
-  pylint: commands succeeded
-  congratulations :)
+.pkg: _exit> python /Users/kevin/.local/share/virtualenvs/hello-world-y-OCt5ty-py3.10/lib/python3.10/site-packages/pyproject_api/_backend.py True poetry.core.masonry.api
+  py310: OK (27.77=setup[17.26]+cmd[7.46,3.05] seconds)
+  isort: OK (4.11=setup[3.71]+cmd[0.41] seconds)
+  pylint: OK (26.80=setup[16.00]+cmd[6.87,3.93] seconds)
+  congratulations :) (58.90 seconds)
 
 ```
 <!-- markdownlint-restore -->
 
 可以看到 tox 做了如下事情：
 
-- 执行了 `py311` 的测试，
+- 执行了 `py310` 的测试，
 - [isort](https://pycqa.github.io/isort/) 的包导入检查，
 - [pylint](https://www.pylint.org/) 的 Python 语法规范检查。
 
